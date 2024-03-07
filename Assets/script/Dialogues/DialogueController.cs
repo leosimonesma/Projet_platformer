@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEditor.Rendering;
+using UnityEngine.UI;
 
 
 public class DialogueController : MonoBehaviour
