@@ -9,6 +9,7 @@ using UnityEngine.UI;
 public class DialogueController : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI NPCNameText;
+    [SerializeField] private Image NPCFace;
     [SerializeField] private TextMeshProUGUI NPCDialogueText;
     [SerializeField] private float typeSpeed = 10;
 
@@ -19,6 +20,8 @@ public class DialogueController : MonoBehaviour
     private Coroutine typeDialogueCoroutine;
     private const string HtmlAlpha = "<color=#00000000>";
     private const float MaxTypeTime = 0.1f;
+    public bool CanMove = true;
+    public Player_Mouvements YouCanMove;
     public void DisplayNextParagraph (DialogueText dialogueText)
     {
         //-------------- if nothing is in the queue-----------
@@ -27,8 +30,12 @@ public class DialogueController : MonoBehaviour
         {
             if (!conversatioEnded)
             {
+                
+                
                 //------------Start dialogue-------------
                 StartConversaiton(dialogueText);
+                
+
 
             }
             else if (conversatioEnded && !IsTyping)
@@ -36,13 +43,17 @@ public class DialogueController : MonoBehaviour
 
                 //--------------- End Dialogue-------------
                 EndConversaiton();
+                
+            
                 return;
+                
             }
         
         }
         //-------------- if there is something in the queue----------
         if (!IsTyping)
         {
+            YouCanMove.stopMouvement();
             p = paragraphs.Dequeue();
             typeDialogueCoroutine = StartCoroutine(TypeDialogueText(p));
 
@@ -50,6 +61,7 @@ public class DialogueController : MonoBehaviour
         // the Text is beeing typed out
         else
         {
+            YouCanMove.stopMouvement();
             FinishParagraphUrly();
 
         }
@@ -57,6 +69,7 @@ public class DialogueController : MonoBehaviour
         // ---------- uptdate conversationEnded Bool ----------
         if (paragraphs.Count == 0 )
         {
+            YouCanMove.stopMouvement();
             conversatioEnded = true;
 
         }
@@ -65,13 +78,16 @@ public class DialogueController : MonoBehaviour
     }
     private void StartConversaiton (DialogueText dialogueText)
     {
+        YouCanMove.stopMouvement();
         //------------ activate gameObject -----------------
         if (!gameObject.activeSelf)
         {
             gameObject.SetActive(true);
 
         }
+        NPCFace.sprite = dialogueText.NPCFace;
         //---------------uptate the NPC's Name---------
+
         NPCNameText.text = dialogueText.NPCName;
         //---------------- add dialogue Text to the queue------------
         for (int i = 0; i < dialogueText.paragraphs.Length; i++)
@@ -92,6 +108,8 @@ public class DialogueController : MonoBehaviour
 
             gameObject.SetActive(false);
         }
+        YouCanMove.playMouvement();
+        Debug.Log("Real unfrezze");
 
     }
     private IEnumerator TypeDialogueText(string p)
@@ -103,7 +121,7 @@ public class DialogueController : MonoBehaviour
         string originalText = p;
         string displayedText= "";
         int alphaIndex = 0;
-
+        YouCanMove.stopMouvement();
         foreach (char c in p.ToCharArray())
         { 
             alphaIndex++;
@@ -116,7 +134,7 @@ public class DialogueController : MonoBehaviour
         }
 
 
-
+        
         IsTyping = false;
 
     }
@@ -130,7 +148,11 @@ public class DialogueController : MonoBehaviour
         NPCDialogueText.text = p;
         // uptdate Istyping bool
         IsTyping = false;
+        YouCanMove.playMouvement();
+        Debug.Log("Real unfrezze2");
+
 
 
     }
+
 }

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: NPC_01
   m_EditorClassIdentifier: 
   NPCName: David
+  NPCFace: {fileID: 21300000, guid: bd0fb364bdf7e8f4cab1a87cf154a409, type: 3}
   paragraphs:
   - Salut ! Moi c'est David
   - "alors Comment tu le trouve le jeu ? Moi franchement je dit \xE7a va !!! Au moins

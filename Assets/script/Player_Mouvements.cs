@@ -22,6 +22,7 @@ public class Player_Mouvements : MonoBehaviour
     [SerializeField] float groundCheckRadius;
     [SerializeField] Transform groundCheck;
     [SerializeField] LayerMask CollisionsLayers;
+    public DialogueController IsAbleToMove;
 
 
     // Start is called before the first frame update
@@ -58,6 +59,7 @@ public class Player_Mouvements : MonoBehaviour
     {
         PlayerControl = false;
         Animator_player.SetBool("BoolRun", false);
+        Debug.Log("frezze");
     }
     public void playMouvement()
     {

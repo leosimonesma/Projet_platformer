@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -27,6 +28,8 @@ public abstract class NPC : MonoBehaviour, IInteractable
         {
             // ----------------set interraction sprite OFF ----------------
             InteractSprite.gameObject.SetActive(false);
+            
+          
 
         }
         else if (!InteractSprite.gameObject.activeSelf && IsWithinInteractDistance())
@@ -53,11 +56,15 @@ public abstract class NPC : MonoBehaviour, IInteractable
         else
         {
             return false;
+            
 
         }
 
 
     }
-   
 
+    
+    
+        
+    
 }
