@@ -5,7 +5,8 @@ using UnityEngine;
 public class Player_Mouvements : MonoBehaviour
 {
     //-------------------- Initialisation des variables --------------
-    [SerializeField] float mouvement_speed = 5f;
+    [SerializeField] float mouvement_speed = 40f;
+    [SerializeField] float horizontalMove = 0f;
     float vitesseInit;
     [SerializeField] float jump_speed = 10f;
     [SerializeField] float dash_speed = 2f;
@@ -23,9 +24,14 @@ public class Player_Mouvements : MonoBehaviour
     [SerializeField] Transform groundCheck;
     [SerializeField] LayerMask CollisionsLayers;
     public DialogueController IsAbleToMove;
+    [SerializeField] float HorizontalMove = 0f;
+    private Vector3 m_Velocity = Vector3.zero;
+    private bool m_FacingRight = true;
+    [Range(0, .3f)][SerializeField] private float MovementSmoothing = .05f;
+    public GameObject Player;
 
 
-    // Start is called before the first frame update
+
     void Start()
     {
 
@@ -34,20 +40,44 @@ public class Player_Mouvements : MonoBehaviour
     }
 
 
-    // Update is called once per frame
+  
     void Update()
     {
 
-        // --------------------------------- Fonction de mouvement -------------------------------
+
+
+         //  -------------------------- Appel Fonction d'actions --------------------------
+         actions();
+
+        // ----------------------------- Appel Fonction de Mouvement --------------------------------
+        horizontalMove = Input.GetAxisRaw("Horizontal") * mouvement_speed;
+
         if (PlayerControl)
         {
-            mouvement();
+            mouvement(horizontalMove * Time.fixedDeltaTime);
         }
+    }
+    void FixedUpdate()
+    {
 
 
-        //  -------------------------- Fonction d'actions --------------------------
-        actions();
+        // --------------------------------- IsGrounded -----------------------------------
 
+
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, CollisionsLayers);
+
+        if (isGrounded)
+        {
+            Animator_player.SetBool("Booljump", false);
+            isGrounded = true;
+           
+        }
+        else
+        {
+            Animator_player.SetBool("Booljump", true);
+            isGrounded = false;
+            
+        }
 
 
 
@@ -57,6 +87,8 @@ public class Player_Mouvements : MonoBehaviour
     // ----------------------------- player stop animation -------------------------------- 
     public void stopMouvement()
     {
+        horizontalMove = 0f;    
+        rigidbody.velocity = Vector3.zero;
         PlayerControl = false;
         Animator_player.SetBool("BoolRun", false);
         Debug.Log("frezze");
@@ -66,81 +98,48 @@ public class Player_Mouvements : MonoBehaviour
         PlayerControl = true;
 
     }
-    // --------------------------------- IsGrounded -----------------------------------
-    /* void OnCollisionEnter2D(Collision2D other)
-     {
-         if (other.gameObject.CompareTag("Sol"))
-         {
-             isGrounded = true;
-         }
-     }
-     void OnCollisionExit2D(Collision2D other)
-     {
-         if (other.gameObject.CompareTag("Sol"))
-         {
-             isGrounded = false;
-         }
-     }*/
-    private void FixedUpdate()
+ 
+
+    //---------------------------------------  fonction "mouvement"  -----------------------------------
+   public void mouvement(float move)
     {
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, CollisionsLayers);
-
-        if (isGrounded)
+        if (horizontalMove > 0 && m_FacingRight)
         {
-            Animator_player.SetBool("Booljump", false);
-            isGrounded = true;
+            Animator_player.SetBool("BoolRun", true);
+            sprite_renderer.flipX = false;
         }
-        else
+        else if (horizontalMove < 0 && !m_FacingRight)
         {
-            Animator_player.SetBool("Booljump", true);
-            isGrounded = false;
+            Animator_player.SetBool("BoolRun", true);
+            //sprite_renderer.flipX = true;
         }
-    }
+        else if (horizontalMove ==0)
+        {
+            Animator_player.SetBool("BoolRun", false);
 
-    //--------------------------------------- Initialisation de la fonction "mouvement"  -----------------------------------
-    void mouvement()
-    {
-        // ------------------------------ Initialisation des Fonctions de déplacements ------------------------------------
-       // if (CanMove) {
+        }
 
+        // Move the character by finding the target velocity
+        Vector3 targetVelocity = new Vector2(move * 10f, rigidbody.velocity.y);
+        // And then smoothing it out and applying it to the character
+        rigidbody.velocity = Vector3.SmoothDamp(rigidbody.velocity, targetVelocity, ref m_Velocity, MovementSmoothing);
 
-          //  move = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-            //rigidbody.velocity = new Vector2(move.x * mouvement_speed, rigidbody.velocity.y);
-            // ------------------------- Mouvement gauche -----------------------
-           if (Input.GetKey(KeyCode.LeftArrow))
-            {
-                Debug.Log(rigidbody.velocity);
-                transform.Translate(Vector2.left * mouvement_speed * Time.deltaTime);
-                Animator_player.SetBool("BoolRun", true);
-                sprite_renderer.flipX = true;
+        // If the input is moving the player right and the player is facing left...
+        if (move > 0 && !m_FacingRight)
+        {
+            // ... flip the player.
+            Flip();
+        }
+        // Otherwise if the input is moving the player left and the player is facing right...
+        else if (move < 0 && m_FacingRight)
+        {
+            // ... flip the player.
+            Flip();
+        }
 
-            }
-            // -------------------------- Mouvement droite ------------------------
-            else if (Input.GetKey(KeyCode.RightArrow))
-            {
-
-                transform.Translate(Vector2.right * mouvement_speed * Time.deltaTime);
-                Animator_player.SetBool("BoolRun", true);
-                sprite_renderer.flipX = false;
-
-            }
-
-
-            if (Input.GetKeyUp(KeyCode.LeftArrow))
-            {
-
-                Animator_player.SetBool("BoolRun", false);
-
-
-            }
-            else if (Input.GetKeyUp(KeyCode.RightArrow))
-            {
-
-                Animator_player.SetBool("BoolRun", false);
-
-            }
-            // ---------------------- Slide --------------------------------
-            if (Input.GetKeyDown(KeyCode.Keypad2))
+       
+        // ---------------------- Slide --------------------------------
+        if (Input.GetKeyDown(KeyCode.Keypad2))
             {
 
                 Animator_player.SetBool("BoolSlide", true);
@@ -152,6 +151,7 @@ public class Player_Mouvements : MonoBehaviour
                 Animator_player.SetBool("BoolSlide", false);
 
             };
+        
             // ------------------------- Jump --------------------------
 
             if (Input.GetKeyDown(KeyCode.UpArrow) && nbSaut > 0)
@@ -214,6 +214,20 @@ public class Player_Mouvements : MonoBehaviour
 
         };
     }
+
+    // ------------------------- Flipping the player -------------------------------
+    private void Flip()
+    {
+        // Switch the way the player is labelled as facing.
+        m_FacingRight = !m_FacingRight;
+
+        // Multiply the player's x local scale by -1.
+        Vector3 theScale = transform.localScale;
+        theScale.x *= -1;
+        transform.localScale = theScale;
+    }
+
+
     // -------------------------------------- Initialisation de la fonction "actions" --------------------------------
     void actions()
     {

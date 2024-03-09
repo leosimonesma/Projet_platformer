@@ -22,8 +22,19 @@ public class DialogueController : MonoBehaviour
     private const float MaxTypeTime = 0.1f;
     public bool CanMove = true;
     public Player_Mouvements YouCanMove;
+    public GameObject Player;
+    [SerializeField] Animator Animator_player;
+
+
     public void DisplayNextParagraph (DialogueText dialogueText)
     {
+
+        YouCanMove.stopMouvement();
+        if (conversatioEnded == true)
+        {
+            YouCanMove.playMouvement();
+        }
+
         //-------------- if nothing is in the queue-----------
 
         if (paragraphs.Count == 0) 
@@ -108,7 +119,7 @@ public class DialogueController : MonoBehaviour
 
             gameObject.SetActive(false);
         }
-        YouCanMove.playMouvement();
+     
         Debug.Log("Real unfrezze");
 
     }
@@ -148,11 +159,25 @@ public class DialogueController : MonoBehaviour
         NPCDialogueText.text = p;
         // uptdate Istyping bool
         IsTyping = false;
-        YouCanMove.playMouvement();
         Debug.Log("Real unfrezze2");
 
 
 
     }
+ /*   public void stopMouvement()
+    {
+        Animator_player.SetBool("BoolRun", false);
+        //Player.GetComponent<Player_Mouvements>().enabled = false;
+       // Player.GetComponent<Rigidbody2D>().isKinematic = true;
+       
+        //Rigidbody2D.enabled = false;
+ 
+        Debug.Log("frezze");
+    }
+    public void playMouvement()
+    {
+        Player.GetComponent<Rigidbody2D>().isKinematic = false;
+
+    }*/
 
 }

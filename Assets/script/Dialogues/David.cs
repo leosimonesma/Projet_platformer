@@ -11,12 +11,15 @@ public class David : NPC, ITalkable
     
 
 
+
+
     public override void Interact()
     {
+        
         Talk(dialogueText);
         
     }
-   
+
 
     public void Talk(DialogueText dialogueText)
     {

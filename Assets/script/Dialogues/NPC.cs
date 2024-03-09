@@ -8,8 +8,8 @@ public abstract class NPC : MonoBehaviour, IInteractable
 {
     [SerializeField] private SpriteRenderer InteractSprite;
     private Transform PlayerTransform;
-    private const float interactDistance = 2f;
-    
+    private const float interactDistance = 2f; 
+
 
     private void Start()
     {
@@ -18,6 +18,8 @@ public abstract class NPC : MonoBehaviour, IInteractable
 
     private void Update()
     {
+            
+     
         if (Keyboard.current.eKey.wasPressedThisFrame && IsWithinInteractDistance())
         {
             //-------------------Intéraction with a NPC--------------
@@ -63,8 +65,4 @@ public abstract class NPC : MonoBehaviour, IInteractable
 
     }
 
-    
-    
-        
-    
 }
