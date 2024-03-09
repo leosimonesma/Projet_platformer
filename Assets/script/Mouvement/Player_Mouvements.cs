@@ -84,15 +84,16 @@ public class Player_Mouvements : MonoBehaviour
 
 
     }
-    // ----------------------------- player stop animation -------------------------------- 
+    // ----------------------------- player freez -------------------------------- 
     public void stopMouvement()
     {
         horizontalMove = 0f;    
         rigidbody.velocity = Vector3.zero;
         PlayerControl = false;
         Animator_player.SetBool("BoolRun", false);
-        Debug.Log("frezze");
+        
     }
+    //-------------------------------- player play defreez -------------------------------
     public void playMouvement()
     {
         PlayerControl = true;

@@ -4,5 +4,6 @@ using UnityEngine;
 
 public interface ITalkable 
 {
+    //Make the NPC able to have a dialogue
     public void Talk(DialogueText dialogueText);
 }

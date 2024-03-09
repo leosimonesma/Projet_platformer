@@ -460,8 +460,6 @@ MonoBehaviour:
   typeSpeed: 10
   CanMove: 1
   YouCanMove: {fileID: 947253736}
-  Player: {fileID: 947253726}
-  Animator_player: {fileID: 947253727}
 --- !u!1 &183795714
 GameObject:
   m_ObjectHideFlags: 0
@@ -10466,7 +10464,6 @@ MonoBehaviour:
   InteractSprite: {fileID: 1650644635}
   dialogueText: {fileID: 11400000, guid: b88c754c63c80654b94f03bbf99ea0cf, type: 2}
   dialogueController: {fileID: 157336327}
-  playerMouvements: {fileID: 947253736}
 --- !u!1 &616224507
 GameObject:
   m_ObjectHideFlags: 0
@@ -12880,8 +12877,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InteractSprite: {fileID: 17401752}
   dialogueText: {fileID: 11400000, guid: 7d63bbb7f4ef0b241b02a7f7e0be59a1, type: 2}
-  dialogueController: {fileID: 157336327}
-  playerMouvements: {fileID: 947253736}
+  dialogueController: {fileID: 1525694805}
 --- !u!61 &1359719105
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13168,9 +13164,7 @@ MonoBehaviour:
   NPCDialogueText: {fileID: 2017389096}
   typeSpeed: 10
   CanMove: 1
-  YouCanMove: {fileID: 0}
-  Player: {fileID: 0}
-  Animator_player: {fileID: 0}
+  YouCanMove: {fileID: 947253736}
 --- !u!224 &1525694806
 RectTransform:
   m_ObjectHideFlags: 0
