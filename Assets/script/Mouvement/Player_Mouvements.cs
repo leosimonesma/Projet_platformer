@@ -5,8 +5,8 @@ using UnityEngine;
 public class Player_Mouvements : MonoBehaviour
 {
     //-------------------- Initialisation des variables --------------
-    [SerializeField] float mouvement_speed = 40f;
-    [SerializeField] float horizontalMove = 0f;
+    public float mouvement_speed = 40f;
+    public float horizontalMove = 0f;
     float vitesseInit;
     [SerializeField] float jump_speed = 10f;
     [SerializeField] float dash_speed = 2f;
@@ -18,18 +18,14 @@ public class Player_Mouvements : MonoBehaviour
     [SerializeField] bool dashUp = true;
     [SerializeField] bool isGrounded = false;
     [SerializeField] bool CanMove = true;
-    [SerializeField] bool PlayerControl = true;
+    public bool PlayerControl = true;
     [SerializeField] int nbSaut = 1;
     [SerializeField] float groundCheckRadius;
     [SerializeField] Transform groundCheck;
     [SerializeField] LayerMask CollisionsLayers;
-    public DialogueController IsAbleToMove;
-    [SerializeField] float HorizontalMove = 0f;
     private Vector3 m_Velocity = Vector3.zero;
     private bool m_FacingRight = true;
     [Range(0, .3f)][SerializeField] private float MovementSmoothing = .05f;
-    public GameObject Player;
-
 
 
     void Start()
@@ -39,24 +35,6 @@ public class Player_Mouvements : MonoBehaviour
 
     }
 
-
-  
-    void Update()
-    {
-
-
-
-         //  -------------------------- Appel Fonction d'actions --------------------------
-         actions();
-
-        // ----------------------------- Appel Fonction de Mouvement --------------------------------
-        horizontalMove = Input.GetAxisRaw("Horizontal") * mouvement_speed;
-
-        if (PlayerControl)
-        {
-            mouvement(horizontalMove * Time.fixedDeltaTime);
-        }
-    }
     void FixedUpdate()
     {
 
@@ -125,13 +103,13 @@ public class Player_Mouvements : MonoBehaviour
         // And then smoothing it out and applying it to the character
         rigidbody.velocity = Vector3.SmoothDamp(rigidbody.velocity, targetVelocity, ref m_Velocity, MovementSmoothing);
 
-        // If the input is moving the player right and the player is facing left...
+        // If the input is moving the player right and the player is facing left
         if (move > 0 && !m_FacingRight)
         {
             // ... flip the player.
             Flip();
         }
-        // Otherwise if the input is moving the player left and the player is facing right...
+        // Otherwise if the input is moving the player left and the player is facing right
         else if (move < 0 && m_FacingRight)
         {
             // ... flip the player.
@@ -141,36 +119,23 @@ public class Player_Mouvements : MonoBehaviour
        
         // ---------------------- Slide --------------------------------
         if (Input.GetKeyDown(KeyCode.Keypad2))
-            {
+        {
 
-                Animator_player.SetBool("BoolSlide", true);
+            Animator_player.SetBool("BoolSlide", true);
 
-            }
-            else
-            {
+        }
+        else
+        {
 
-                Animator_player.SetBool("BoolSlide", false);
+            Animator_player.SetBool("BoolSlide", false);
 
-            };
-        
-            // ------------------------- Jump --------------------------
-
-            if (Input.GetKeyDown(KeyCode.UpArrow) && nbSaut > 0)
-            {
-                rigidbody.velocity = Vector2.up * jump_speed;
-                nbSaut--;
-            }
-
-            if (isGrounded)
-            {
-                nbSaut = 1;
-            }
-      //  }
+        };
 
 
-
-        // --------------------------- Coroutine du Dash --------------------------------
-
+    }
+    public void Dash()
+    {
+        // ---------------------------------  Dash Coroutine ----------------------------------
         IEnumerator Fonction_Dash()
         {
             //CanMove = false;
@@ -189,17 +154,10 @@ public class Player_Mouvements : MonoBehaviour
             //couldown
             yield return new WaitForSeconds(couldown);
             dashUp = true;
-           
-
-
-
-
-
 
 
         }
         // --------------------------------- Dash ----------------------------------
-
         if (Input.GetKeyDown(KeyCode.Keypad3) && dashUp)
         {
 
@@ -214,6 +172,25 @@ public class Player_Mouvements : MonoBehaviour
             Animator_player.SetBool("BoolDash", false);
 
         };
+
+
+    }
+    public void Jump()
+    {
+             // ------------------------- Jump --------------------------
+
+            if (Input.GetKeyDown(KeyCode.UpArrow) && nbSaut > 0)
+            {
+                rigidbody.velocity = Vector2.up * jump_speed;
+                nbSaut--;
+            }
+
+            if (isGrounded)
+            {
+                nbSaut = 1;
+            }
+
+
     }
 
     // ------------------------- Flipping the player -------------------------------
@@ -230,7 +207,7 @@ public class Player_Mouvements : MonoBehaviour
 
 
     // -------------------------------------- Initialisation de la fonction "actions" --------------------------------
-    void actions()
+    public void actions()
     {
         // ---------------------------- Attaque ------------------------------
         void go_attack()
@@ -245,7 +222,7 @@ public class Player_Mouvements : MonoBehaviour
         {
 
             mouvement_speed = 0;
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(1f);
             mouvement_speed = vitesseInit;
         }
         if (Input.GetKeyDown(KeyCode.Keypad1))
