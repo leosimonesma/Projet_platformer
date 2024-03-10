@@ -82,6 +82,7 @@ public class Player_Mouvements : MonoBehaviour
     //---------------------------------------  fonction "mouvement"  -----------------------------------
    public void mouvement(float move)
     {
+       
         if (horizontalMove > 0 && m_FacingRight)
         {
             Animator_player.SetBool("BoolRun", true);
@@ -92,7 +93,7 @@ public class Player_Mouvements : MonoBehaviour
             Animator_player.SetBool("BoolRun", true);
             //sprite_renderer.flipX = true;
         }
-        else if (horizontalMove ==0)
+        else if (horizontalMove == 0)
         {
             Animator_player.SetBool("BoolRun", false);
 
@@ -207,29 +208,31 @@ public class Player_Mouvements : MonoBehaviour
 
 
     // -------------------------------------- Initialisation de la fonction "actions" --------------------------------
+
+
     public void actions()
     {
         // ---------------------------- Attaque ------------------------------
         void go_attack()
         {
             Animator_player.SetBool("BoolAttack", true);
-            mouvement_speed = 0;
+
         }
 
 
         // Coroutine d'immobilisation durant une attaque 
-        IEnumerator Fonction_Attack()
-        {
+         IEnumerator Fonction_Attack()
+         {
 
-            mouvement_speed = 0;
-            yield return new WaitForSeconds(1f);
-            mouvement_speed = vitesseInit;
-        }
+             mouvement_speed = 0;
+             yield return new WaitForSeconds(1f);
+             mouvement_speed = vitesseInit;
+         }
         if (Input.GetKeyDown(KeyCode.Keypad1))
         {
 
             go_attack();
-            StartCoroutine(Fonction_Attack());
+           StartCoroutine(Fonction_Attack());
 
         }
         else
@@ -237,7 +240,8 @@ public class Player_Mouvements : MonoBehaviour
 
             Animator_player.SetBool("BoolAttack", false);
 
-        };
+        }
+
 
     }
 }

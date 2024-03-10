@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
 
         if (PlayerActions.PlayerControl)
         {
+            
            PlayerActions.mouvement(PlayerActions.horizontalMove * Time.fixedDeltaTime);
             PlayerActions.Jump();
             PlayerActions.Dash();
