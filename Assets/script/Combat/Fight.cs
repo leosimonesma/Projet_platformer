@@ -5,7 +5,7 @@ using UnityEngine;
 public class Fight : MonoBehaviour
 {
     public GameObject Hit;
-    public Monsters MonsterScript;
+   // public Monsters MonsterScript;
 
     public void hit()
     {

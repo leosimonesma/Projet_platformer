@@ -10331,7 +10331,7 @@ GameObject:
   - component: {fileID: 495216575}
   m_Layer: 0
   m_Name: Hit
-  m_TagString: Untagged
+  m_TagString: Attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10380,7 +10380,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.21139522, y: -0.0026291981}
@@ -10408,7 +10408,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9de77f38601d3f74cbf27084317c73d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MonsterScript: {fileID: 1131543081}
 --- !u!212 &495216575
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11284,7 +11283,6 @@ GameObject:
   - component: {fileID: 947253736}
   - component: {fileID: 947253737}
   - component: {fileID: 947253738}
-  - component: {fileID: 947253739}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -11534,20 +11532,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerActions: {fileID: 947253736}
---- !u!114 &947253739
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 947253726}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea8e2e1c8722fd644a2213a701026d09, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Hit: {fileID: 495216571}
-  MonsterScript: {fileID: 1131543081}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -11840,9 +11824,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1131543079}
   - component: {fileID: 1131543078}
-  - component: {fileID: 1131543080}
   - component: {fileID: 1131543081}
-  m_Layer: 6
+  - component: {fileID: 1131543082}
+  m_Layer: 0
   m_Name: Monster
   m_TagString: Monsters
   m_Icon: {fileID: 0}
@@ -11916,27 +11900,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1131543080
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1131543077}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 7.220566, y: 6.5089054, z: 0.2}
-  m_Center: {x: -0.35567576, y: 0.020942358, z: 0}
 --- !u!114 &1131543081
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11946,10 +11909,56 @@ MonoBehaviour:
   m_GameObject: {fileID: 1131543077}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab4177dcade28554087f631ab0fdba0c, type: 3}
+  m_Script: {fileID: 11500000, guid: d1e89230c1ea33d4daf5439cd3fa68e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   MonsterHp: 2
+  Monster: {fileID: 1131543077}
+--- !u!61 &1131543082
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1131543077}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 6.3, y: 6.09}
+    newSize: {x: 12.27, y: 6.51}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 6.3, y: 6.09}
+  m_EdgeRadius: 0
 --- !u!1 &1149168506
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Monsters : MonoBehaviour
+public class Monsters_SCript : MonoBehaviour
 {
 
     [SerializeField] float MonsterHp = 2;
-    GameObject Monster;
+    public GameObject Monster;
+
 
     public void loseHp()
     {
@@ -16,7 +17,7 @@ public class Monsters : MonoBehaviour
     }
     public void death()
     {
-        if (MonsterHp <=0)
+        if (MonsterHp <= 0)
         {
             Monster.SetActive(false);
             Debug.Log("Je meurt !!");
@@ -25,17 +26,31 @@ public class Monsters : MonoBehaviour
 
     }
 
-   
+    void OnTriggerEnter2D(Collider2D other)
+    {
+       
+        if (other.gameObject.CompareTag("Attack"))
+        {
+            Debug.Log("j'ai touché");
+           loseHp();
+            
+        }
+
+
+    }
+
+
+
 
 
     void Start()
     {
-        
+
     }
 
-  
+
     void Update()
     {
-        
+        death();
     }
 }

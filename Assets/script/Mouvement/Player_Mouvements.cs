@@ -91,7 +91,7 @@ public class Player_Mouvements : MonoBehaviour
         else if (horizontalMove < 0 && !m_FacingRight)
         {
             Animator_player.SetBool("BoolRun", true);
-            //sprite_renderer.flipX = true;
+           
         }
         else if (horizontalMove == 0)
         {
@@ -225,7 +225,7 @@ public class Player_Mouvements : MonoBehaviour
          {
 
              mouvement_speed = 0;
-             yield return new WaitForSeconds(1f);
+             yield return new WaitForSeconds(0.6f);
              mouvement_speed = vitesseInit;
          }
         if (Input.GetKeyDown(KeyCode.Keypad1))
