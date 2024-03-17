@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Timer : MonoBehaviour
+public class Timer_01 : MonoBehaviour
 {
     [SerializeField] float StartTime = 0f;
     [SerializeField] float CurrentTime = 10f;
