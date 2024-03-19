@@ -8,6 +8,7 @@ TagManager:
   - Sol
   - Monsters
   - Attack
+  - Objects
   layers:
   - Default
   - TransparentFX
