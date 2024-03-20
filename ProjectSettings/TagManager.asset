@@ -9,6 +9,8 @@ TagManager:
   - Monsters
   - Attack
   - Objects
+  - CheckPoint
+  - DeathPoint
   layers:
   - Default
   - TransparentFX
