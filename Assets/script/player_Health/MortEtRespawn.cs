@@ -14,9 +14,7 @@ public class MortEtRespawn : MonoBehaviour
     {
         if (other.gameObject.CompareTag("CheckPoint"))
         {
-
             transform.position = Respawn;
-
         }
     }
 

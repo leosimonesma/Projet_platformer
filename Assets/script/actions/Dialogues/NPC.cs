@@ -20,7 +20,7 @@ public abstract class NPC : MonoBehaviour, IInteractable
     {
             
      
-        if (Keyboard.current.eKey.wasPressedThisFrame && IsWithinInteractDistance())
+        if (Input.GetButtonDown("DialogueCustom") && IsWithinInteractDistance())
         {
             //-------------------Intéraction with a NPC--------------
             Interact();

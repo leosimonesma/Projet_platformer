@@ -11763,7 +11763,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.04836978, y: -0.0023466349}
+  m_Offset: {x: -0.049367227, y: -0.00234662}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -11774,7 +11774,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.16837767, y: 0.2534827}
+  m_Size: {x: 0.17037241, y: 0.25348264}
   m_EdgeRadius: 0
 --- !u!50 &947253729
 Rigidbody2D:
@@ -11788,7 +11788,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
-  m_Mass: 0.93216896
+  m_Mass: 0.9393672
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 3
@@ -11889,24 +11889,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouvement_speed: 40
   horizontalMove: 0
-  jump_speed: 10
-  dash_speed: 7
-  dash_duration: 0.1
-  couldown: 1
-  Animator_player: {fileID: 947253727}
-  sprite_renderer: {fileID: 947253730}
-  rigidbody: {fileID: 947253729}
-  dashUp: 1
-  isGrounded: 0
   CanMove: 1
   PlayerControl: 1
+  MovementSmoothing: 0
+  jump_speed: 10
+  isGrounded: 0
   nbSaut: 2
   groundCheckRadius: 0.2
   groundCheck: {fileID: 385032467}
+  coyoteTime: 0.2
+  dash_speed: 7
+  dash_duration: 0.1
+  couldown: 1
+  dashUp: 1
+  Animator_player: {fileID: 947253727}
+  sprite_renderer: {fileID: 947253730}
+  rigidbody: {fileID: 947253729}
+  CanAttack: 1
   CollisionsLayers:
     serializedVersion: 2
     m_Bits: 8
-  MovementSmoothing: 0
 --- !u!58 &947253737
 CircleCollider2D:
   m_ObjectHideFlags: 0

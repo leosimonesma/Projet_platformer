@@ -5,27 +5,45 @@ using UnityEngine;
 public class Player_Mouvements : MonoBehaviour
 {
     //-------------------- Initialisation des variables --------------
+
+
+    // ----------------------- Mouvement --------------------
     public float mouvement_speed = 40f;
     public float horizontalMove = 0f;
     float vitesseInit;
-    [SerializeField] float jump_speed = 10f;
-    [SerializeField] float dash_speed = 2f;
-    [SerializeField] float dash_duration = 0.1f;
-    [SerializeField] float couldown = 3f;
-    [SerializeField] Animator Animator_player;
-    [SerializeField] SpriteRenderer sprite_renderer;
-    [SerializeField] Rigidbody2D rigidbody;
-    [SerializeField] bool dashUp = true;
-    [SerializeField] bool isGrounded = false;
     [SerializeField] bool CanMove = true;
     public bool PlayerControl = true;
-    [SerializeField] int nbSaut = 1;
-    [SerializeField] float groundCheckRadius;
-    [SerializeField] Transform groundCheck;
-    [SerializeField] LayerMask CollisionsLayers;
     private Vector3 m_Velocity = Vector3.zero;
     private bool m_FacingRight = true;
     [Range(0, .3f)][SerializeField] private float MovementSmoothing = .05f;
+
+
+    // -------------------- Jump -------------------
+    [SerializeField] float jump_speed = 10f;
+    [SerializeField] bool isGrounded = false;
+    [SerializeField] int nbSaut = 1;
+    [SerializeField] float groundCheckRadius;
+    [SerializeField] Transform groundCheck;
+    [SerializeField] float coyoteTime = 0.2f;
+    private float coyoteTimeCount;
+
+
+    // ---------------- Dash ------------------------
+    [SerializeField] float dash_speed = 2f;
+    [SerializeField] float dash_duration = 0.1f;
+    [SerializeField] float couldown = 3f;
+    [SerializeField] bool dashUp = true;
+
+    // ------------- Animations ----------------------------
+    [SerializeField] Animator Animator_player;
+    [SerializeField] SpriteRenderer sprite_renderer;
+    [SerializeField] Rigidbody2D rigidbody;
+
+
+  // ------------------ Actions -------------------------
+    [SerializeField] bool CanAttack = true;
+    [SerializeField] LayerMask CollisionsLayers;
+
 
 
     void Start()
@@ -159,7 +177,7 @@ public class Player_Mouvements : MonoBehaviour
 
         }
         // --------------------------------- Dash ----------------------------------
-        if (Input.GetKeyDown(KeyCode.Keypad3) && dashUp)
+        if (Input.GetButtonDown("DashCustom") && dashUp)
         {
 
             StartCoroutine(Fonction_Dash());
@@ -167,7 +185,7 @@ public class Player_Mouvements : MonoBehaviour
             Animator_player.SetBool("BoolDash", true);
 
         }
-        else if (Input.GetKeyUp(KeyCode.Keypad3))
+        else if (Input.GetButtonUp("DashCustom"))
         {
 
             Animator_player.SetBool("BoolDash", false);
@@ -176,17 +194,41 @@ public class Player_Mouvements : MonoBehaviour
 
 
     }
+
     public void Jump()
     {
+
+        if (isGrounded)
+        {
+            coyoteTimeCount = coyoteTime;
+
+        }
+        else
+        { 
+            
+            coyoteTimeCount -= Time.deltaTime;
+           
+        }
              // ------------------------- Jump --------------------------
 
-            if (Input.GetKeyDown(KeyCode.UpArrow) && nbSaut > 0)
-            {
-                rigidbody.velocity = Vector2.up * jump_speed;
-                nbSaut--;
-            }
+        if (Input.GetButtonDown("JumpCustom")  && coyoteTimeCount > 0f)
+        {
+            rigidbody.velocity = Vector2.up * jump_speed;
+            Debug.Log("je suis saut au sol");
+            Debug.Log(nbSaut);
 
-            if (isGrounded)
+
+        }
+        if (Input.GetButtonDown("JumpCustom") && nbSaut > 0 && !isGrounded)
+        {
+            rigidbody.velocity = Vector2.up * jump_speed;
+            nbSaut--;
+            Debug.Log("je suis saut en l'air");
+            Debug.Log(nbSaut);
+
+        }
+
+        if (isGrounded)
             {
                 nbSaut = 1;
             }
@@ -223,16 +265,40 @@ public class Player_Mouvements : MonoBehaviour
         // Coroutine d'immobilisation durant une attaque 
          IEnumerator Fonction_Attack()
          {
-
-             mouvement_speed = 0;
+            CanAttack = false;
+          
+            mouvement_speed = 0;
              yield return new WaitForSeconds(0.6f);
              mouvement_speed = vitesseInit;
-         }
-        if (Input.GetKeyDown(KeyCode.Keypad1))
+            yield return new WaitForSeconds(0.1f);
+            CanAttack = true;
+
+
+        }
+        IEnumerator Fonction_Attack_Air()
+        {
+            CanAttack = false;
+
+            yield return new WaitForSeconds(0.1f);
+            CanAttack = true;
+
+
+        }
+        if (Input.GetButtonDown("AttackCustom")&& CanAttack == true)
         {
 
-            go_attack();
-           StartCoroutine(Fonction_Attack());
+           go_attack();
+          if (isGrounded)
+          {
+             StartCoroutine(Fonction_Attack());
+
+          }
+          if (!isGrounded)
+          {
+              StartCoroutine(Fonction_Attack_Air());
+
+          }
+
 
         }
         else

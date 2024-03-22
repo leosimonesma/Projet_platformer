@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         // ----------------------------- Appel Fonction de Mouvement --------------------------------
-        PlayerActions.horizontalMove = Input.GetAxisRaw("Horizontal") * PlayerActions.mouvement_speed;
+        PlayerActions.horizontalMove = Input.GetAxis("Horizontal") * PlayerActions.mouvement_speed;
 
         if (PlayerActions.PlayerControl)
         {
