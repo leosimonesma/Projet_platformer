@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Hit : MonoBehaviour
 {
-    //public Monster_Script MonsterScript;
+   // public Monsters_SCript MonsterScript;
 
 
     private void Update()
@@ -18,12 +18,12 @@ public class Hit : MonoBehaviour
     }
 
 
-   /* void OnTriggerEnter2D(Collider2D other)
+  /*  void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Monsters"))
         {
             Debug.Log("j'ai touché");
-           // MonsterScript.loseHp();
+           MonsterScript.loseHp();
 
 
         }

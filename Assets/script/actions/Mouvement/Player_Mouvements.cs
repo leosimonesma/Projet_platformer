@@ -26,6 +26,7 @@ public class Player_Mouvements : MonoBehaviour
     [SerializeField] Transform groundCheck;
     [SerializeField] float coyoteTime = 0.2f;
     private float coyoteTimeCount;
+    [SerializeField] LayerMask CollisionsLayers;
 
 
     // ---------------- Dash ------------------------
@@ -42,7 +43,7 @@ public class Player_Mouvements : MonoBehaviour
 
   // ------------------ Actions -------------------------
     [SerializeField] bool CanAttack = true;
-    [SerializeField] LayerMask CollisionsLayers;
+
 
 
 
@@ -279,7 +280,7 @@ public class Player_Mouvements : MonoBehaviour
         {
             CanAttack = false;
 
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.5f);
             CanAttack = true;
 
 
@@ -293,7 +294,7 @@ public class Player_Mouvements : MonoBehaviour
              StartCoroutine(Fonction_Attack());
 
           }
-          if (!isGrounded)
+          if (coyoteTimeCount <=0)
           {
               StartCoroutine(Fonction_Attack_Air());
 

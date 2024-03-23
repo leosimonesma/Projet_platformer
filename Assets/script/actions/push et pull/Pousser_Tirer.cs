@@ -8,37 +8,46 @@ using UnityEngine.InputSystem;
 public class Pousser_Tirer : MonoBehaviour
 {
 
-    private int layerIndex;
-    GameObject Player;
-    bool Grab = false;
-    private GameObject grabbedObject;
+    [SerializeField] float GrabCheckRadius = 0.65f;
+    [SerializeField] Transform GrabCheck;
+    [SerializeField] bool Grab = false;
+    [SerializeField] LayerMask CollisionsLayers;
+    [SerializeField] bool isGrab = false;
+    // public GameObject grabbedObject;
     private void Start()
     {
-        layerIndex = LayerMask.NameToLayer("Objects");
+        
     }
-    void OnTriggerStay2D(Collider2D other)
-    {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            if (gameObject.layer == layerIndex)
-            {
-                Debug.Log("j'ai Grab");
-                grabbedObject.GetComponent<Rigidbody2D>().isKinematic = true;
-                grabbedObject.transform.SetParent(transform);
-                Grab = true;
-
-            }
-            if (Grab ==true)
-            {
-                Debug.Log("je grab pas !");
-                grabbedObject.GetComponent<Rigidbody2D>().isKinematic = false;
-                grabbedObject.transform.SetParent(null);
-                
-
-            }
-        }
+     void OnTriggerStay2D(Collider2D other)
+     {
+           if (Input.GetKeyDown(KeyCode.E))
+           {
+               if (other.CompareTag("Objects"))
+               {
+                if (!Grab)
+                {
+                    Debug.Log("j'ai Grab");
+                    other.transform.SetParent(transform);
+                    Grab = true;
+                }
+                else
+                {
+                    Debug.Log("je grab pas !");
+                    other.transform.SetParent(null);
+                    Grab = false;
 
 
+                }
 
-    }
+
+               }
+
+           }
+
+
+
+
+     }
+
+
 }
