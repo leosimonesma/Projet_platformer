@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Player_Mouvements : MonoBehaviour
@@ -16,6 +15,7 @@ public class Player_Mouvements : MonoBehaviour
     private Vector3 m_Velocity = Vector3.zero;
     private bool m_FacingRight = true;
     [Range(0, .3f)][SerializeField] private float MovementSmoothing = .05f;
+    public pushetpull isPushing;
 
 
     // -------------------- Jump -------------------
@@ -27,6 +27,7 @@ public class Player_Mouvements : MonoBehaviour
     [SerializeField] float coyoteTime = 0.2f;
     private float coyoteTimeCount;
     [SerializeField] LayerMask CollisionsLayers;
+    [SerializeField] GameObject isGroundedCricle;
 
 
     // ---------------- Dash ------------------------
@@ -75,10 +76,21 @@ public class Player_Mouvements : MonoBehaviour
             isGrounded = false;
             
         }
+        if (isPushing.isGrabbing == true)
+        {
+
+           // isGrabTrue();
+
+
+        }
 
 
 
 
+    }
+    void isGrabTrue()
+    {
+       
 
     }
     // ----------------------------- player freez -------------------------------- 
@@ -214,6 +226,7 @@ public class Player_Mouvements : MonoBehaviour
 
         if (Input.GetButtonDown("JumpCustom")  && coyoteTimeCount > 0f)
         {
+            
             rigidbody.velocity = Vector2.up * jump_speed;
             Debug.Log("je suis saut au sol");
             Debug.Log(nbSaut);
@@ -223,16 +236,16 @@ public class Player_Mouvements : MonoBehaviour
         if (Input.GetButtonDown("JumpCustom") && nbSaut > 0 && !isGrounded)
         {
             rigidbody.velocity = Vector2.up * jump_speed;
-            nbSaut--;
             Debug.Log("je suis saut en l'air");
             Debug.Log(nbSaut);
+            nbSaut--;
 
         }
 
         if (isGrounded)
-            {
+        {
                 nbSaut = 1;
-            }
+        }
 
 
     }

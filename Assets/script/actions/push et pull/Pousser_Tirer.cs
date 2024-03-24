@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using JetBrains.Annotations;
-using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.InputSystem;
 public class Pousser_Tirer : MonoBehaviour
@@ -12,12 +11,13 @@ public class Pousser_Tirer : MonoBehaviour
     [SerializeField] Transform GrabCheck;
     [SerializeField] bool Grab = false;
     [SerializeField] LayerMask CollisionsLayers;
-    [SerializeField] bool isGrab = false;
-    // public GameObject grabbedObject;
+   // [SerializeField] bool isGrab = false;
+    [SerializeField] GameObject player;
     private void Start()
     {
         
     }
+
      void OnTriggerStay2D(Collider2D other)
      {
            if (Input.GetKeyDown(KeyCode.E))

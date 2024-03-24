@@ -712,7 +712,7 @@ GameObject:
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &255398834
 Transform:
   m_ObjectHideFlags: 0
@@ -743,7 +743,7 @@ GameObject:
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &261315103
 Transform:
   m_ObjectHideFlags: 0
@@ -11109,6 +11109,7 @@ GameObject:
   - component: {fileID: 692680739}
   - component: {fileID: 692680738}
   - component: {fileID: 692680737}
+  - component: {fileID: 692680740}
   m_Layer: 8
   m_Name: Square
   m_TagString: Objects
@@ -11229,6 +11230,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &692680740
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 692680735}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 51.01
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 2.18
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &704968778
 GameObject:
   m_ObjectHideFlags: 0
@@ -11504,7 +11532,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &899923844
 Transform:
   m_ObjectHideFlags: 0
@@ -11538,7 +11566,7 @@ MonoBehaviour:
   CollisionsLayers:
     serializedVersion: 2
     m_Bits: 256
-  isGrab: 0
+  player: {fileID: 0}
 --- !u!61 &899923846
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11979,6 +12007,7 @@ MonoBehaviour:
   CanMove: 1
   PlayerControl: 1
   MovementSmoothing: 0
+  isPushing: {fileID: 947253739}
   jump_speed: 10
   isGrounded: 0
   nbSaut: 2
@@ -11988,6 +12017,7 @@ MonoBehaviour:
   CollisionsLayers:
     serializedVersion: 2
     m_Bits: 8
+  isGroundedCricle: {fileID: 385032466}
   dash_speed: 7
   dash_duration: 0.1
   couldown: 1
@@ -12051,14 +12081,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 947253726}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9d3b72cce26918b458541a5955f3d199, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   grabPoint: {fileID: 255398834}
   raypoint: {fileID: 261315103}
-  rayDistance: 0.5
+  rayDistance: 0.45
+  isGrabbing: 0
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0

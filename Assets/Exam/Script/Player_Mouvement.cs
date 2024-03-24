@@ -85,13 +85,8 @@ public class Player_Mouvement : MonoBehaviour
     }
 
 
-   /* void OnCollisionExit2D(Collision2D other)
-    {
-        if (other.gameObject.CompareTag("Sol"))
-        {
-            isGrounded = false;
-        }
-    }*/
+
+ 
     // --------------- Perte Hp et Game Over ---------------
    void blessure()
     {

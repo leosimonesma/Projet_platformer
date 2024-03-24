@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -14,6 +10,7 @@ public class pushetpull : MonoBehaviour
     private Transform raypoint;
     [SerializeField]
     private float rayDistance;
+    public bool isGrabbing = false;
 
     private GameObject grabbedObject;
     private int layerIndex;
@@ -37,8 +34,9 @@ public class pushetpull : MonoBehaviour
                 Debug.Log("je grab");
                 grabbedObject = hitInfo.collider.gameObject;
                 grabbedObject.GetComponent<Rigidbody2D>().isKinematic = true;
-                grabbedObject.transform.position = grabPoint.position;
+               // grabbedObject.transform.position = grabPoint.position;
                 grabbedObject.transform.SetParent(transform);
+                isGrabbing = true;
             }
             //release object
             else if (Keyboard.current.tKey.wasPressedThisFrame)
@@ -47,6 +45,7 @@ public class pushetpull : MonoBehaviour
                 grabbedObject.GetComponent<Rigidbody2D>().isKinematic = false;
                 grabbedObject.transform.SetParent(null);
                 grabbedObject = null;
+                isGrabbing = false;
 
             }
         }
