@@ -7,6 +7,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public Player_Mouvements PlayerActions;
+    public pushetpull isPushing;
 
 
     void Update()
@@ -18,9 +19,22 @@ public class Player : MonoBehaviour
         {
             
            PlayerActions.mouvement(PlayerActions.horizontalMove * Time.fixedDeltaTime);
-            PlayerActions.Jump();
-            PlayerActions.Dash();
-            PlayerActions.actions();
+            if (isPushing.isGrabbing==true)
+            {
+                PlayerActions.mouvement_speed = 10f;
+
+
+            }
+           
+            if (isPushing.isGrabbing == false)
+            {
+                PlayerActions.Jump();
+                PlayerActions.Dash();
+                PlayerActions.actions();
+                PlayerActions.mouvement_speed = 40f;
+            }
+
+           
         }
 
     }

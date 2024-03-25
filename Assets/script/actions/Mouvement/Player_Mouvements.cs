@@ -76,23 +76,13 @@ public class Player_Mouvements : MonoBehaviour
             isGrounded = false;
             
         }
-        if (isPushing.isGrabbing == true)
-        {
 
-           // isGrabTrue();
-
-
-        }
 
 
 
 
     }
-    void isGrabTrue()
-    {
-       
 
-    }
     // ----------------------------- player freez -------------------------------- 
     public void stopMouvement()
     {
