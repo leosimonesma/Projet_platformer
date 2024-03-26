@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 public class MortEtRespawn : MonoBehaviour
 {
     private Vector2 Respawn;
-    [SerializeField] float health = 3;
+    public float health = 3;
     [SerializeField] Animator Animator_player;
 
     private void Start()
@@ -29,20 +29,10 @@ public class MortEtRespawn : MonoBehaviour
         {
 
             transform.position = Respawn;
+            health--;
+            Debug.Log(health);
 
         }
-       /* else if (other.gameObject.CompareTag("HealPoint"))
-        {
-
-            if (health < 3)
-            {
-
-                health ++;
-
-            }
-
-
-        }*/
 
 
     }

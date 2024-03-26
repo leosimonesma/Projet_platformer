@@ -8,6 +8,7 @@ public class Player_Mouvements : MonoBehaviour
 
     // ----------------------- Mouvement --------------------
     public float mouvement_speed = 40f;
+    public float mouvement_grab = 10f;
     public float horizontalMove = 0f;
     float vitesseInit;
     [SerializeField] bool CanMove = true;
@@ -28,6 +29,7 @@ public class Player_Mouvements : MonoBehaviour
     private float coyoteTimeCount;
     [SerializeField] LayerMask CollisionsLayers;
     [SerializeField] GameObject isGroundedCricle;
+    [SerializeField] bool SecondJump = false;
 
 
     // ---------------- Dash ------------------------
@@ -214,21 +216,27 @@ public class Player_Mouvements : MonoBehaviour
         }
              // ------------------------- Jump --------------------------
 
-        if (Input.GetButtonDown("JumpCustom")  && coyoteTimeCount > 0f)
+        if (Input.GetButtonDown("JumpCustom")  /*&& coyoteTimeCount > 0f*/&& nbSaut == 1f)
         {
             
             rigidbody.velocity = Vector2.up * jump_speed;
             Debug.Log("je suis saut au sol");
+            nbSaut--;
             Debug.Log(nbSaut);
+            SecondJump = true;
+            Debug.Log(SecondJump);
+
+
 
 
         }
-        if (Input.GetButtonDown("JumpCustom") && nbSaut > 0 && !isGrounded)
+        if (Input.GetButtonDown("JumpCustom") /*&& nbSaut >0*/ && !isGrounded && SecondJump == true)
         {
             rigidbody.velocity = Vector2.up * jump_speed;
-            Debug.Log("je suis saut en l'air");
+            SecondJump = false;
             Debug.Log(nbSaut);
-            nbSaut--;
+
+            
 
         }
 

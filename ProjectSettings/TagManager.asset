@@ -11,6 +11,7 @@ TagManager:
   - Objects
   - CheckPoint
   - DeathPoint
+  - HealPoint
   layers:
   - Default
   - TransparentFX
