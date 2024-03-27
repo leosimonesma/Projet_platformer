@@ -25,7 +25,7 @@ public class Player_Mouvements : MonoBehaviour
     [SerializeField] int nbSaut = 1;
     [SerializeField] float groundCheckRadius;
     [SerializeField] Transform groundCheck;
-    [SerializeField] float coyoteTime = 0.2f;
+    [SerializeField] float coyoteTime = 0.5f;
     private float coyoteTimeCount;
     [SerializeField] LayerMask CollisionsLayers;
     [SerializeField] GameObject isGroundedCricle;
@@ -216,34 +216,44 @@ public class Player_Mouvements : MonoBehaviour
         }
              // ------------------------- Jump --------------------------
 
-        if (Input.GetButtonDown("JumpCustom")  /*&& coyoteTimeCount > 0f*/&& nbSaut == 1f)
+        if (Input.GetButtonDown("JumpCustom")  /*&& coyoteTimeCount > 0f && nbSaut == 1f*/)
         {
-            
-            rigidbody.velocity = Vector2.up * jump_speed;
-            Debug.Log("je suis saut au sol");
-            nbSaut--;
-            Debug.Log(nbSaut);
-            SecondJump = true;
-            Debug.Log(SecondJump);
+            if (coyoteTimeCount > 0f || nbSaut == 1f)
+            {
+
+                rigidbody.velocity = Vector2.up * jump_speed;
+                Debug.Log("1");
+                nbSaut--;
+                Debug.Log(nbSaut);
+
+
+                Debug.Log(SecondJump);
+
+
+            }
+
 
 
 
 
         }
-        if (Input.GetButtonDown("JumpCustom") /*&& nbSaut >0*/ && !isGrounded && SecondJump == true)
-        {
-            rigidbody.velocity = Vector2.up * jump_speed;
-            SecondJump = false;
-            Debug.Log(nbSaut);
+        /* if (Input.GetButtonDown("JumpCustom") /*&& nbSaut >0 && !isGrounded && SecondJump == true)
+         {
+             rigidbody.velocity = Vector2.up * jump_speed;
+             SecondJump = false;
+             Debug.Log(nbSaut);
+             Debug.Log("2");
 
-            
 
-        }
 
-        if (isGrounded)
-        {
-                nbSaut = 1;
-        }
+         }*/
+
+         if (isGrounded)
+         {
+                 nbSaut = 1;
+         }
+
+
 
 
     }
