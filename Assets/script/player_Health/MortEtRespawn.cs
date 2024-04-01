@@ -44,7 +44,7 @@ public class MortEtRespawn : MonoBehaviour
 
             // Animator_player.SetBool("BoolDeath",true );
 
-
+    
 
         }
 
