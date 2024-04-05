@@ -17,34 +17,44 @@ public class Monsters_SCript : MonoBehaviour
     [SerializeField] Animator Animator_Monster;
     [SerializeField] bool DoHit;
 
-    //methode to make the monster lose Hp
+    //methode to make the monster lose Hp and die
     public void loseHp()
     {
-        if ( MonsterHp>0)
-        {
+        MonsterHp--;
+       
+        
             Animator_Monster.SetBool("BoolHurt", true);
-            MonsterHp--;
+            
             Debug.Log("Je perd un Pv");
-            recoveryTime = true;
-        }
+            StartCoroutine(BeeingHit());
 
 
+        
+       if (MonsterHp <= 0)
+       {
+            Animator_Monster.SetBool("BoolDeath", true);
+            StartCoroutine(Dying());
+            Debug.Log("Je meurt !!");
+
+       }
 
     }
-    public void finHurt() 
-    {
 
-        Animator_Monster.SetBool("BoolHurt", false);
-
-
-    }
-    // recovery time to prevent os of the monsters
+    // coroutines to stop the hurt animation and the death animation at the right time 
     IEnumerator BeeingHit()
     {
 
-        yield return new WaitForSeconds(1f);
-        recoveryTime = false;
-        finHurt();
+        yield return new WaitForSeconds(0.4f);
+        Animator_Monster.SetBool("BoolHurt", false);
+
+
+
+    }
+    IEnumerator Dying()
+    {
+
+        yield return new WaitForSeconds(0.5f);
+        Destroy(gameObject);
 
 
 
@@ -54,44 +64,30 @@ public class Monsters_SCript : MonoBehaviour
     {
         if (MonsterHp <= 0)
         {
+            MonsterHp--;
             Animator_Monster.SetBool("BoolDeath",true);
-            Debug.Log("Je meurt !!");
-          //  Monster.SetActive(false);
+            StartCoroutine(Dying());
 
         }
 
     }
     public void destroyed()
     {
-        Monster.SetActive(false);
+        Debug.Log("mange mes couilles animation de merde");
     }
-// methode that combine the loss of Hp and the recovery time
-    void isHitted()
-    {
-        if (isHit && !recoveryTime)
-        {
-            loseHp();
-             StartCoroutine(BeeingHit());
-
-        }
-
-    }
+    //Attack Animation
     private void attack()
     {
 
         if (DoHit)
         {
 
-
             Animator_Monster.SetBool("BoolAttack", true);
-
-
 
         }
         else
         {
             Animator_Monster.SetBool("BoolAttack", false);
-
 
         }
 
@@ -108,8 +104,6 @@ public class Monsters_SCript : MonoBehaviour
     }
 
 
-
-
     void Start()
     {
 
@@ -119,10 +113,8 @@ public class Monsters_SCript : MonoBehaviour
     void Update()
     {
         // "hitbox" of the monster
-        isHit = Physics2D.OverlapCircle(HitCheck.position, HitCheckRadius, CollisionsLayers);
         DoHit = Physics2D.OverlapCircle(AttackHox.position, AttackCheckRadius, CollisionsLayersAttack);
-        death();
-        isHitted();
+       // death();
         attack();
 
 

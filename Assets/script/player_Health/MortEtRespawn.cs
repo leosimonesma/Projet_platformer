@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class MortEtRespawn : MonoBehaviour
@@ -13,8 +14,16 @@ public class MortEtRespawn : MonoBehaviour
     {
         Respawn = transform.position;
     }
+    private void Update()
+    {
 
 
+        mort();
+
+
+    }
+
+    // bring the player back to the last checkpoint when hitting a deathbox and make him lose 1 hp
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("CheckPoint"))
@@ -36,15 +45,27 @@ public class MortEtRespawn : MonoBehaviour
 
 
     }
+    // lose health (called in the monster attack script
+    public void hitted()
+    {
+
+        health--;
+        Debug.Log(health);
+
+
+    }
+    //death of the player when hp = 0
     public void mort()
     {
 
         if (health <= 0)
         {
 
+
+            SceneManager.LoadScene("SCN_Niveau1");
             // Animator_player.SetBool("BoolDeath",true );
 
-    
+
 
         }
 
@@ -52,6 +73,7 @@ public class MortEtRespawn : MonoBehaviour
 
 
     }
+    //keep in memory the checkpoint position
     public void respawn()
     {
 

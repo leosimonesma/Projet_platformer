@@ -3,20 +3,18 @@ using UnityEngine.InputSystem;
 
 public class pushetpull : MonoBehaviour
 {
-    [SerializeField]
-    private Transform grabPoint;
+    [SerializeField] private Transform grabPoint;
 
-    [SerializeField]
-    private Transform raypoint;
+    [SerializeField] private Transform raypoint;
     [SerializeField]
     private float rayDistance;
     public bool isGrabbing = false;
-
     private GameObject grabbedObject;
     private int layerIndex;
 
     private void Start()
     {
+        // getting the layer index of the layer Objects
         layerIndex = LayerMask.NameToLayer("Objects");
     }
 
@@ -29,17 +27,16 @@ public class pushetpull : MonoBehaviour
         {
             Debug.Log("je lance le ray");
             //grab object
-            if (Keyboard.current.tKey.wasPressedThisFrame && grabbedObject == null)
+            if (Input.GetButtonDown("DialogueCustom") && grabbedObject == null)
             {
                 Debug.Log("je grab");
                 grabbedObject = hitInfo.collider.gameObject;
                 grabbedObject.GetComponent<Rigidbody2D>().isKinematic = true;
-               // grabbedObject.transform.position = grabPoint.position;
                 grabbedObject.transform.SetParent(transform);
                 isGrabbing = true;
             }
             //release object
-            else if (Keyboard.current.tKey.wasPressedThisFrame)
+            else if (Input.GetButtonDown("DialogueCustom"))
             {
                 Debug.Log("je grab pas !");
                 grabbedObject.GetComponent<Rigidbody2D>().isKinematic = false;

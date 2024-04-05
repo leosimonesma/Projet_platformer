@@ -14,7 +14,7 @@ public class Player_Mouvements : MonoBehaviour
     [SerializeField] bool CanMove = true;
     public bool PlayerControl = true;
     private Vector3 m_Velocity = Vector3.zero;
-    private bool m_FacingRight = true;
+    private bool FacingRight = true;
     [Range(0, .3f)][SerializeField] private float MovementSmoothing = .05f;
     public pushetpull isPushing;
 
@@ -101,17 +101,17 @@ public class Player_Mouvements : MonoBehaviour
 
     }
  
-
+    
     //---------------------------------------  fonction "mouvement"  -----------------------------------
    public void mouvement(float move)
     {
        
-        if (horizontalMove > 0 && m_FacingRight)
+        if (horizontalMove > 0 && FacingRight)
         {
             Animator_player.SetBool("BoolRun", true);
             sprite_renderer.flipX = false;
         }
-        else if (horizontalMove < 0 && !m_FacingRight)
+        else if (horizontalMove < 0 && !FacingRight)
         {
             Animator_player.SetBool("BoolRun", true);
            
@@ -128,13 +128,13 @@ public class Player_Mouvements : MonoBehaviour
         rigidbody.velocity = Vector3.SmoothDamp(rigidbody.velocity, targetVelocity, ref m_Velocity, MovementSmoothing);
 
         // If the input is moving the player right and the player is facing left
-        if (move > 0 && !m_FacingRight)
+        if (move > 0 && !FacingRight && isPushing.isGrabbing == false)
         {
             // ... flip the player.
             Flip();
         }
         // Otherwise if the input is moving the player left and the player is facing right
-        else if (move < 0 && m_FacingRight)
+        else if (move < 0 && FacingRight && isPushing.isGrabbing == false)
         {
             // ... flip the player.
             Flip();
@@ -216,7 +216,7 @@ public class Player_Mouvements : MonoBehaviour
         }
              // ------------------------- Jump --------------------------
 
-        if (Input.GetButtonDown("JumpCustom")  /*&& coyoteTimeCount > 0f && nbSaut == 1f*/)
+        if (Input.GetButtonDown("JumpCustom"))
         {
             if (coyoteTimeCount > 0f || nbSaut == 1f)
             {
@@ -261,10 +261,10 @@ public class Player_Mouvements : MonoBehaviour
     // ------------------------- Flipping the player -------------------------------
     private void Flip()
     {
-        // Switch the way the player is labelled as facing.
-        m_FacingRight = !m_FacingRight;
+        
+       FacingRight = !FacingRight;
 
-        // Multiply the player's x local scale by -1.
+        
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;

@@ -13,7 +13,8 @@ public class Player : MonoBehaviour
     void Update()
     {
         // ----------------------------- Appel Fonction de Mouvement --------------------------------
-        // le ispushing permet d'entraver le joueur quand il push un objet
+      
+        // The ispushing allow to reduce the speed when the player is pushing something
         if (isPushing.isGrabbing == false)
         {
             PlayerActions.horizontalMove = Input.GetAxis("Horizontal") * PlayerActions.mouvement_speed;

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Hit : MonoBehaviour
 {
-   // public Monsters_SCript MonsterScript;
+    public Monsters_SCript MonsterScript;
 
 
     private void Update()
@@ -17,8 +17,8 @@ public class Hit : MonoBehaviour
         
     }
 
-
-  /*  void OnTriggerEnter2D(Collider2D other)
+    // trigger to inflict dmg to the monsters
+   void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Monsters"))
         {
@@ -29,5 +29,5 @@ public class Hit : MonoBehaviour
         }
 
 
-    }*/
+    }
 }
