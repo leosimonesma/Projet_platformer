@@ -188,7 +188,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.17825475, y: 0.1345945}
+  m_Offset: {x: 0.02285482, y: 0.1345945}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -199,7 +199,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.19030076, y: 0.63402426}
+  m_Size: {x: 0.5925199, y: 0.63402426}
   m_EdgeRadius: 0
 --- !u!114 &486858
 MonoBehaviour:
@@ -214,6 +214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerdmg: {fileID: 947253740}
+  PlayerMouvement: {fileID: 947253738}
 --- !u!1 &17401751
 GameObject:
   m_ObjectHideFlags: 0
@@ -1099,6 +1100,40 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 947253731}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &271426188
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 271426189}
+  m_Layer: 0
+  m_Name: ----Monsters----
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &271426189
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 271426188}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -445.35928, y: -126.60546, z: 0.5678952}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1131543079}
+  - {fileID: 548329393}
+  - {fileID: 1189090044}
+  m_Father: {fileID: 1491665488}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &341537291
 GameObject:
@@ -11236,6 +11271,37 @@ MonoBehaviour:
   InteractSprite: {fileID: 1650644635}
   dialogueText: {fileID: 11400000, guid: b88c754c63c80654b94f03bbf99ea0cf, type: 2}
   dialogueController: {fileID: 157336327}
+--- !u!1 &548329392
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 548329393}
+  m_Layer: 0
+  m_Name: PatrolPoint_0
+  m_TagString: Untagged
+  m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &548329393
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 548329392}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.99, y: -1.7, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 271426189}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &559228995
 GameObject:
   m_ObjectHideFlags: 0
@@ -11282,7 +11348,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &614012525
 Transform:
   m_ObjectHideFlags: 0
@@ -12694,6 +12760,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 3
   Animator_player: {fileID: 0}
+  Knockback_Strenght: 6
+  Knockback_Duration: 0.2
+  Knockback_Total_Time: 0.2
+  KnockFromRight: 0
+  PlayerActions: {fileID: 947253736}
 --- !u!70 &947253741
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -13162,6 +13233,7 @@ GameObject:
   - component: {fileID: 1131543081}
   - component: {fileID: 1131543083}
   - component: {fileID: 1131543084}
+  - component: {fileID: 1131543085}
   m_Layer: 6
   m_Name: Monster
   m_TagString: Monsters
@@ -13230,14 +13302,14 @@ Transform:
   m_GameObject: {fileID: 1131543077}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -434.95, y: -128.27441, z: 0.6403821}
-  m_LocalScale: {x: 3.5490885, y: 3.545184, z: 5.6877847}
+  m_LocalPosition: {x: 10.409271, y: -1.668953, z: 0.07248694}
+  m_LocalScale: {x: 3.5, y: 3.5, z: 5.6}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 559228996}
   - {fileID: 1245334785}
   - {fileID: 486856}
-  m_Father: {fileID: 1491665488}
+  m_Father: {fileID: 271426189}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1131543081
 MonoBehaviour:
@@ -13333,6 +13405,27 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1131543085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1131543077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1c04bb2ad4294d4882cca48c8ba73b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PatrolPoints:
+  - {fileID: 548329393}
+  - {fileID: 1189090044}
+  Speed: 2
+  PatrolDestination: 0
+  Monster_Sprite: {fileID: 1131543078}
+  Player: {fileID: 947253731}
+  IsChasing: 0
+  chaseDistance: 2
 --- !u!1 &1146470956
 GameObject:
   m_ObjectHideFlags: 0
@@ -14507,6 +14600,37 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1189090043
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1189090044}
+  m_Layer: 0
+  m_Name: PatrolPoint_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1189090044
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1189090043}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 16.17, y: -1.7, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 271426189}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1204688753
 GameObject:
   m_ObjectHideFlags: 0
@@ -15281,7 +15405,7 @@ Transform:
   - {fileID: 526524372}
   - {fileID: 1359719107}
   - {fileID: 1915824204}
-  - {fileID: 1131543079}
+  - {fileID: 271426189}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1497362785

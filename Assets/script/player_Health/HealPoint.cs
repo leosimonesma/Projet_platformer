@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.InputSystem.DefaultInputActions;
 
 public class HealPoint : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class HealPoint : MonoBehaviour
     private const float interactDistance = 2f;
     public MortEtRespawn PlayerHealth;
     [SerializeField] float nbHeal = 1;
+
+
 
 
     private void Start()
@@ -78,4 +81,5 @@ public class HealPoint : MonoBehaviour
         }
 
     }
+
 }

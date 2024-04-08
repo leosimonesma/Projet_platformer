@@ -6,9 +6,20 @@ using UnityEngine.UIElements;
 
 public class MortEtRespawn : MonoBehaviour
 {
+
+    //------------------ death and respawn -------------
     private Vector2 Respawn;
     public float health = 3;
     [SerializeField] Animator Animator_player;
+
+    // ---------------- knockback ----------------------
+    public float Knockback_Strenght = 20;
+    public float Knockback_Duration = 0.2f;
+    public float Knockback_Total_Time = 0.2f;
+    public bool KnockFromRight;
+    public Player_Mouvements PlayerActions;
+
+
 
     private void Start()
     {
@@ -81,6 +92,22 @@ public class MortEtRespawn : MonoBehaviour
         // Animator_player.SetBool("BoolDeath",false );
 
     }
+    //method to knocback the player when he is hitted depending of where he is hitted from 
+    public void knockback()
+    {
+        if (KnockFromRight)
+        {
+            PlayerActions.rigidbody.velocity = new Vector2(-Knockback_Strenght, Knockback_Strenght);
+        }
+        if (!KnockFromRight)
+        {
+            PlayerActions.rigidbody.velocity = new Vector2(Knockback_Strenght, Knockback_Strenght);
+        }
+        Knockback_Duration -= Time.deltaTime;
+
+
+    }
+
 
 
 

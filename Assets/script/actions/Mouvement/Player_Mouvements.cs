@@ -41,7 +41,7 @@ public class Player_Mouvements : MonoBehaviour
     // ------------- Animations ----------------------------
     [SerializeField] Animator Animator_player;
     [SerializeField] SpriteRenderer sprite_renderer;
-    [SerializeField] Rigidbody2D rigidbody;
+    public Rigidbody2D rigidbody;
 
 
   // ------------------ Actions -------------------------

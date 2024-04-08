@@ -16,6 +16,7 @@ public class Monsters_SCript : MonoBehaviour
     [SerializeField] bool recoveryTime = false;
     [SerializeField] Animator Animator_Monster;
     [SerializeField] bool DoHit;
+   
 
     //methode to make the monster lose Hp and die
     public void loseHp()

@@ -26,6 +26,11 @@ public class Player : MonoBehaviour
 
             PlayerActions.horizontalMove = Input.GetAxis("Horizontal") * PlayerActions.mouvement_grab;
         }
+        else
+        {
+
+
+        }
 
 
         if (PlayerActions.PlayerControl)

@@ -5,6 +5,7 @@ using UnityEngine;
 public class MonsterAttack : MonoBehaviour
 {
     [SerializeField]  MortEtRespawn playerdmg;
+    public Player PlayerMouvement;
 
     private void Update()
     {
@@ -23,8 +24,22 @@ public class MonsterAttack : MonoBehaviour
 
         if (other.gameObject.CompareTag("Player"))
         {
+            playerdmg.Knockback_Duration = playerdmg.Knockback_Total_Time;
             Debug.Log("j'ai touché");
+            if (other.transform.position.x <= transform.position.x)
+            {
+                playerdmg.KnockFromRight = true;
+
+            }
+            if (other.transform.position.x >= transform.position.x)
+            {
+                playerdmg.KnockFromRight = false;
+
+            }
             playerdmg.hitted();
+            playerdmg.knockback();
+
+
 
 
         }
