@@ -15,21 +15,16 @@ public class Player : MonoBehaviour
         // ----------------------------- Appel Fonction de Mouvement --------------------------------
       
         // The ispushing allow to reduce the speed when the player is pushing something
-        if (isPushing.isGrabbing == false)
+        if (isPushing.isGrabbing == false )
         {
             PlayerActions.horizontalMove = Input.GetAxis("Horizontal") * PlayerActions.mouvement_speed;
 
 
         }
-        else if (isPushing.isGrabbing == true)
+        else if (isPushing.isGrabbing == true )
         {
 
             PlayerActions.horizontalMove = Input.GetAxis("Horizontal") * PlayerActions.mouvement_grab;
-        }
-        else
-        {
-
-
         }
 
 

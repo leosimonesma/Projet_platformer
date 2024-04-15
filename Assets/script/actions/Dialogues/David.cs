@@ -8,8 +8,7 @@ public class David : NPC, ITalkable
 
     [SerializeField] private DialogueText dialogueText;
     [SerializeField] private DialogueController dialogueController;
-    
-
+  
 
 
 
@@ -23,6 +22,7 @@ public class David : NPC, ITalkable
 
     public void Talk(DialogueText dialogueText)
     {
+        
         // lancement de la conversation
         dialogueController.DisplayNextParagraph (dialogueText);
     }

@@ -59,7 +59,7 @@ public class Player_Mouvements : MonoBehaviour
 
     void FixedUpdate()
     {
-
+       
 
         // --------------------------------- IsGrounded -----------------------------------
 
@@ -88,9 +88,10 @@ public class Player_Mouvements : MonoBehaviour
     // ----------------------------- player freez -------------------------------- 
     public void stopMouvement()
     {
+        PlayerControl = false;
         horizontalMove = 0f;    
         rigidbody.velocity = Vector3.zero;
-        PlayerControl = false;
+        
         Animator_player.SetBool("BoolRun", false);
         
     }
@@ -206,6 +207,7 @@ public class Player_Mouvements : MonoBehaviour
         if (isGrounded)
         {
             coyoteTimeCount = coyoteTime;
+           // Debug.Log("reset c time");
 
         }
         else

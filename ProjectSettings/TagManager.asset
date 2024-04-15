@@ -12,6 +12,7 @@ TagManager:
   - CheckPoint
   - DeathPoint
   - HealPoint
+  - ObjectsGround
   layers:
   - Default
   - TransparentFX
@@ -23,7 +24,7 @@ TagManager:
   - PlayerAttack
   - Objects
   - Player
-  - 
+  - ObjectsGround
   - 
   - 
   - 

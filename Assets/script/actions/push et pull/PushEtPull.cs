@@ -25,7 +25,7 @@ public class pushetpull : MonoBehaviour
 
         if (hitInfo.collider != null && hitInfo.collider.gameObject.layer == layerIndex)
         {
-            Debug.Log("je lance le ray");
+          //  Debug.Log("je lance le ray");
             //grab object
             if (Input.GetButtonDown("DialogueCustom") && grabbedObject == null)
             {
