@@ -11,6 +11,10 @@ public class MortEtRespawn : MonoBehaviour
     private Vector2 Respawn;
     public float health = 3;
     [SerializeField] Animator Animator_player;
+    [SerializeField] public GameObject[] Pv;
+    bool pv1 = true;
+    bool pv2 = true;
+    bool pv3 = true;
 
     // ---------------- knockback ----------------------
     public float Knockback_Strenght = 20;
@@ -24,12 +28,15 @@ public class MortEtRespawn : MonoBehaviour
     private void Start()
     {
         Respawn = transform.position;
+        // set les pv a 3 
     }
     private void Update()
     {
 
 
         mort();
+        pvloss();
+        pvrecup();
 
 
     }
@@ -104,6 +111,55 @@ public class MortEtRespawn : MonoBehaviour
             PlayerActions.rigidbody.velocity = new Vector2(Knockback_Strenght, Knockback_Strenght);
         }
         Knockback_Duration -= Time.deltaTime;
+
+
+    }
+    public void pvloss()
+    {
+        if (health < 1)
+        {
+
+            Pv[0].gameObject.SetActive(false);
+            pv1 = false;
+
+        }
+        else if(health <2) 
+        {
+
+            Pv[1].gameObject.SetActive(false);
+            pv2 = false;
+
+        }
+        else if (health < 3)
+        {
+
+            Pv[2].gameObject.SetActive(false);
+            pv3 = false;
+
+        }
+
+
+
+    }
+    private void pvrecup()
+    {
+        if (health == 2 && pv2 == false)
+        {
+
+            Pv[1].gameObject.SetActive(true);
+
+
+        }
+        else if (health == 3 && pv3 == false)
+        {
+
+            Pv[2].gameObject.SetActive(true);
+
+
+        }
+
+
+
 
 
     }

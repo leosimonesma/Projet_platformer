@@ -24,7 +24,7 @@ public class Monsters_SCript : MonoBehaviour
         MonsterHp--;
        
         
-            Animator_Monster.SetBool("BoolHurt", true);
+           // Animator_Monster.SetBool("BoolHurt", true);
             
             Debug.Log("Je perd un Pv");
             StartCoroutine(BeeingHit());
@@ -46,7 +46,7 @@ public class Monsters_SCript : MonoBehaviour
     {
 
         yield return new WaitForSeconds(0.4f);
-        Animator_Monster.SetBool("BoolHurt", false);
+       // Animator_Monster.SetBool("BoolHurt", false);
 
 
 

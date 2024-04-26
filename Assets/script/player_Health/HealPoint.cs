@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.InputSystem.DefaultInputActions;
+using UnityEngine.Rendering.Universal;
 
 public class HealPoint : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class HealPoint : MonoBehaviour
     private const float interactDistance = 2f;
     public MortEtRespawn PlayerHealth;
     [SerializeField] float nbHeal = 1;
+    [SerializeField] Light2D healzone;
 
 
 
@@ -73,10 +75,13 @@ public class HealPoint : MonoBehaviour
         if (PlayerHealth.health < 3 && nbHeal ==1)
         {
 
+
             PlayerHealth.health++;
             Debug.Log(PlayerHealth.health);
             nbHeal = 0;
-            
+            healzone.intensity = 0;
+
+
 
         }
 

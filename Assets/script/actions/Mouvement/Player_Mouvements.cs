@@ -224,12 +224,12 @@ public class Player_Mouvements : MonoBehaviour
             {
 
                 rigidbody.velocity = Vector2.up * jump_speed;
-                Debug.Log("1");
+                //Debug.Log("1");
                 nbSaut--;
-                Debug.Log(nbSaut);
+               // Debug.Log(nbSaut);
 
 
-                Debug.Log(SecondJump);
+               // Debug.Log(SecondJump);
 
 
             }

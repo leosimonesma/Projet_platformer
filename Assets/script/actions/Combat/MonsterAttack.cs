@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MonsterAttack : MonoBehaviour
 {
-    [SerializeField]  MortEtRespawn playerdmg;
+    public  MortEtRespawn playerdmg;
     public Player PlayerMouvement;
 
     private void Update()
