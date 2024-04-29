@@ -201,6 +201,15 @@ public class Player_Mouvements : MonoBehaviour
 
     }
 
+    IEnumerator DoubleJumpEnd()
+    {
+        Animator_player.SetBool("BoolSecondJump", true);
+        yield return new WaitForSeconds(0.05f);
+        Animator_player.SetBool("BoolSecondJump", false);
+
+
+    }
+
     public void Jump()
     {
 
@@ -222,7 +231,11 @@ public class Player_Mouvements : MonoBehaviour
         {
             if (coyoteTimeCount > 0f || nbSaut == 1f)
             {
+                if (nbSaut == 1 && !isGrounded)
+                {
+                    StartCoroutine(DoubleJumpEnd());
 
+                }
                 rigidbody.velocity = Vector2.up * jump_speed;
                 //Debug.Log("1");
                 nbSaut--;
