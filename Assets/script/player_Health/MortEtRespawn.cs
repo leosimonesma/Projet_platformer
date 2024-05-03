@@ -9,9 +9,10 @@ public class MortEtRespawn : MonoBehaviour
 
     //------------------ death and respawn -------------
     private Vector2 Respawn;
-    public float health = 3;
+    [SerializeField] Player_Stats player;
     [SerializeField] Animator Animator_player;
     [SerializeField] public GameObject[] Pv;
+    public float health;
     bool pv1 = true;
     bool pv2 = true;
     bool pv3 = true;
@@ -56,6 +57,7 @@ public class MortEtRespawn : MonoBehaviour
         {
 
             transform.position = Respawn;
+            player.sethealth(health);
             health--;
             Debug.Log(health);
 
@@ -67,7 +69,8 @@ public class MortEtRespawn : MonoBehaviour
     public void hitted()
     {
 
-        health--;
+        player.sethealth(health);
+            health--;
         Debug.Log(health);
 
 

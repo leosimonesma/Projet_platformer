@@ -19516,6 +19516,7 @@ GameObject:
   - component: {fileID: 692680738}
   - component: {fileID: 692680740}
   - component: {fileID: 692680741}
+  - component: {fileID: 692680742}
   m_Layer: 8
   m_Name: Gros rocher
   m_TagString: Objects
@@ -19663,6 +19664,41 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.1371078, y: 2.1312628}
   m_EdgeRadius: 0
+--- !u!58 &692680742
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 692680735}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.1664238, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.6002493
 --- !u!1 &704968778
 GameObject:
   m_ObjectHideFlags: 0
@@ -22566,7 +22602,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GrabCheckRadius: 0.65
   GrabCheck: {fileID: 899923844}
-  Grab: 0
+  isGrabbing: 0
   CollisionsLayers:
     serializedVersion: 2
     m_Bits: 256
@@ -23692,9 +23728,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e85d3c9ee333f124688c26a17f02dea3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 3
+  player: {fileID: 0}
   Animator_player: {fileID: 0}
   Pv: []
+  health: 3
   Knockback_Strenght: 6
   Knockback_Duration: 0.2
   Knockback_Total_Time: 0.2
@@ -27602,7 +27639,7 @@ Transform:
   m_GameObject: {fileID: 1156260421}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.6, y: -0.241, z: 0}
+  m_LocalPosition: {x: 0.534, y: -0.241, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -27854,11 +27891,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GrabCheckRadius: 0.65
   GrabCheck: {fileID: 1193016020}
-  Grab: 0
+  isGrabbing: 0
   CollisionsLayers:
     serializedVersion: 2
     m_Bits: 256
-  player: {fileID: 0}
+  player: {fileID: 1876023003}
 --- !u!61 &1193016022
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -27891,7 +27928,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.09674677, y: 0.013541043}
+  m_Offset: {x: 1.0409284, y: -0.16760111}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -27902,7 +27939,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.2125209, y: 0.31693}
+  m_Size: {x: 1.5411333, y: 1.2434335}
   m_EdgeRadius: 0
 --- !u!1 &1195728314
 GameObject:
@@ -41383,12 +41420,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e85d3c9ee333f124688c26a17f02dea3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 3
+  player: {fileID: 11400000, guid: 190df48c51244ff4996a4f3cfdface52, type: 2}
   Animator_player: {fileID: 0}
   Pv:
   - {fileID: 1783656571}
   - {fileID: 2032274439}
   - {fileID: 2139251365}
+  health: 3
   Knockback_Strenght: 6
   Knockback_Duration: 0.2
   Knockback_Total_Time: 0.2
@@ -41406,7 +41444,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d3b72cce26918b458541a5955f3d199, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grabPoint: {fileID: 1417163806}
+  grabPoint: {fileID: 0}
   raypoint: {fileID: 1156260422}
   rayDistance: 0.45
   isGrabbing: 0

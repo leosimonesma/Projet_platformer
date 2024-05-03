@@ -191,12 +191,18 @@ public class Player_Mouvements : MonoBehaviour
             Animator_player.SetBool("BoolDash", true);
 
         }
-        else if (Input.GetButtonUp("DashCustom"))
+        else
         {
 
             Animator_player.SetBool("BoolDash", false);
 
         };
+     /*   else if (Input.GetButtonUp("DashCustom"))
+        {
+
+            Animator_player.SetBool("BoolDash", false);
+
+        };*/
 
 
     }
