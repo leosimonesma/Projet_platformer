@@ -17,12 +17,13 @@ public class Player_Mouvements : MonoBehaviour
     private bool FacingRight = true;
     [Range(0, .3f)][SerializeField] private float MovementSmoothing = .05f;
     public pushetpull isPushing;
+    [SerializeField] Player_Stats player;
 
 
     // -------------------- Jump -------------------
     [SerializeField] float jump_speed = 10f;
     [SerializeField] bool isGrounded = false;
-    [SerializeField] int nbSaut = 1;
+   // [SerializeField] int nbSaut = 1;
     [SerializeField] float groundCheckRadius;
     [SerializeField] Transform groundCheck;
     [SerializeField] float coyoteTime = 0.5f;
@@ -131,13 +132,12 @@ public class Player_Mouvements : MonoBehaviour
         // If the input is moving the player right and the player is facing left
         if (move > 0 && !FacingRight && isPushing.isGrabbing == false)
         {
-            // ... flip the player.
+ 
             Flip();
         }
         // Otherwise if the input is moving the player left and the player is facing right
         else if (move < 0 && FacingRight && isPushing.isGrabbing == false)
         {
-            // ... flip the player.
             Flip();
         }
 
@@ -164,7 +164,8 @@ public class Player_Mouvements : MonoBehaviour
         IEnumerator Fonction_Dash()
         {
             //CanMove = false;
-            dashUp = false;
+           // dashUp = false;
+            player.setDashUp(false);
             //multiplication de la vitesse
             mouvement_speed = mouvement_speed * dash_speed;
 
@@ -178,12 +179,13 @@ public class Player_Mouvements : MonoBehaviour
 
             //couldown
             yield return new WaitForSeconds(couldown);
-            dashUp = true;
+          //  dashUp = true;
+            player.setDashUp(true);
 
 
         }
         // --------------------------------- Dash ----------------------------------
-        if (Input.GetButtonDown("DashCustom") && dashUp)
+        if (Input.GetButtonDown("DashCustom") && player.getDashUp())
         {
 
             StartCoroutine(Fonction_Dash());
@@ -235,17 +237,18 @@ public class Player_Mouvements : MonoBehaviour
 
         if (Input.GetButtonDown("JumpCustom"))
         {
-            if (coyoteTimeCount > 0f || nbSaut == 1f)
+            if (isGrounded || player.getnbSaut() == 1f)
             {
-                if (nbSaut == 1 && !isGrounded)
+                if (player.getnbSaut() == 1 && !isGrounded)
                 {
                     StartCoroutine(DoubleJumpEnd());
 
                 }
                 rigidbody.velocity = Vector2.up * jump_speed;
                 //Debug.Log("1");
-                nbSaut--;
-               // Debug.Log(nbSaut);
+                //nbSaut--;
+                player.setnbSaut(0);
+               
 
 
                // Debug.Log(SecondJump);
@@ -258,20 +261,11 @@ public class Player_Mouvements : MonoBehaviour
 
 
         }
-        /* if (Input.GetButtonDown("JumpCustom") /*&& nbSaut >0 && !isGrounded && SecondJump == true)
+
+         if (isGrounded && player.getCanDoubleJump())
          {
-             rigidbody.velocity = Vector2.up * jump_speed;
-             SecondJump = false;
-             Debug.Log(nbSaut);
-             Debug.Log("2");
-
-
-
-         }*/
-
-         if (isGrounded)
-         {
-                 nbSaut = 1;
+                 
+            player.setnbSaut(1);
          }
 
 
@@ -327,7 +321,7 @@ public class Player_Mouvements : MonoBehaviour
 
 
         }
-        if (Input.GetButtonDown("AttackCustom")&& CanAttack == true)
+        if (Input.GetButtonDown("AttackCustom")&& player.getCanAttack())
         {
 
            go_attack();

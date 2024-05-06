@@ -8,9 +8,9 @@ using UnityEngine;
 public class Player_Stats : ScriptableObject
 {
     private bool CanAttack = true;
-    private bool dashUp = true;
-    private bool CanDoubleJump = true;
-    private int nbSaut = 1;
+    private bool dashUp = false;
+    private bool CanDoubleJump = false;
+    private int nbSaut = 0;
     private float Health = 3;
 
     
@@ -20,7 +20,7 @@ public class Player_Stats : ScriptableObject
     }
     public void setCanAttack(bool a)
     {
-       a = getCanAttack();
+        CanAttack = a;
     }
 
 
@@ -30,7 +30,7 @@ public class Player_Stats : ScriptableObject
     }
     public void setDashUp(bool d)
     {
-        d = getDashUp();
+        dashUp = d;
     }
 
 
@@ -40,7 +40,7 @@ public class Player_Stats : ScriptableObject
     }
     public void setCanDoubleJump(bool dj)
     {
-        dj = getCanDoubleJump();
+        CanDoubleJump = dj;
     }
 
 
@@ -50,16 +50,16 @@ public class Player_Stats : ScriptableObject
     }
     public void setnbSaut(int nbs)
     {
-        nbs = getnbSaut();
+        nbSaut = nbs;
     }
 
     public float gethealth()
     {
         return Health;
     }
-    public void sethealth(float nbs)
+    public void sethealth(float h)
     {
-        nbs = gethealth();
+        Health = h;
     }
 
 }
