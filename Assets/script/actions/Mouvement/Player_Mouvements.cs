@@ -302,23 +302,22 @@ public class Player_Mouvements : MonoBehaviour
         // Coroutine d'immobilisation durant une attaque 
          IEnumerator Fonction_Attack()
          {
-            CanAttack = false;
+            player.setCanAttack(false);
           
             mouvement_speed = 0;
              yield return new WaitForSeconds(0.6f);
              mouvement_speed = vitesseInit;
             yield return new WaitForSeconds(0.1f);
-            CanAttack = true;
+            player.setCanAttack(true);
 
 
         }
         IEnumerator Fonction_Attack_Air()
         {
-            CanAttack = false;
+            player.setCanAttack(false);
 
             yield return new WaitForSeconds(0.5f);
-            CanAttack = true;
-
+            player.setCanAttack(true);
 
         }
         if (Input.GetButtonDown("AttackCustom")&& player.getCanAttack())

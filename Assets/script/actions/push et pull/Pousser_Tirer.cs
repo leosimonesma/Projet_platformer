@@ -7,52 +7,61 @@ using UnityEngine.InputSystem;
 public class Pousser_Tirer : MonoBehaviour
 {
 
-    [SerializeField] float GrabCheckRadius = 0.65f;
-    [SerializeField] Transform GrabCheck;
-    [SerializeField] bool isGrabbing = false;
-    [SerializeField] LayerMask CollisionsLayers;
+  //  [SerializeField] float GrabCheckRadius = 0.65f;
+//    [SerializeField] Transform GrabCheck;
+ //  public bool isGrabbing = false;
+  //  [SerializeField] LayerMask CollisionsLayers;
    // [SerializeField] bool isGrab = false;
     [SerializeField] GameObject player;
+    private Transform PlayerTransform;
+    [SerializeField] Transform ObjectTransform;
+    private const float interactDistance = 4f;
+    public Player playerstats;
     private void Start()
     {
-        
+        PlayerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+
     }
-
-     void OnTriggerStay2D(Collider2D other)
-     {
-        if (other.CompareTag("Objects"))
+    private void Update()
+    {
+        if (Input.GetButtonDown("DialogueCustom") && IsWithinGrabtDistance())
         {
+            Debug.Log("j'ai Grab");
+            ObjectTransform.GetComponent<Rigidbody2D>().isKinematic = true;
+            ObjectTransform.transform.SetParent(PlayerTransform);
+            playerstats.isGrabbing = true;
 
-            Debug.Log("je suis en range");
-
-
-            if (Input.GetButtonDown("DialogueCustom") && !isGrabbing)
-            {
-                Debug.Log("j'ai Grab");
-                //other.GetComponent<Rigidbody2D>().isKinematic = true;
-                other.transform.SetParent(transform);
-                isGrabbing = true;
-            }
-            else if (Input.GetButtonDown("DialogueCustom") && isGrabbing)
-            {
-                Debug.Log("je grab pas !");
-                // other.GetComponent<Rigidbody2D>().isKinematic = false;
-                other.transform.SetParent(null);
-                other = null;
-                isGrabbing = false;
-
-
-            }
+        }
+       else if (Input.GetButtonDown("DialogueCustom"))
+        {
+            Debug.Log("je grab pas !");
+            ObjectTransform.GetComponent<Rigidbody2D>().isKinematic = false;
+            ObjectTransform.transform.SetParent(null);
+            playerstats.isGrabbing = false;
 
 
         }
+        if (IsWithinGrabtDistance())
+        {
+
+           // Debug.Log("je peux grab");
+
+        }
+
+    }
+    private bool IsWithinGrabtDistance()
+    {
+
+        if (Vector2.Distance(PlayerTransform.position, transform.position) < interactDistance)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
 
 
-
-
-
-
-
+        }
 
 
     }
