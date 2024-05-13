@@ -12,7 +12,7 @@ public class MortEtRespawn : MonoBehaviour
     [SerializeField] Player_Stats player;
     [SerializeField] Animator Animator_player;
     [SerializeField] public GameObject[] Pv;
-    public float health;
+    public float health = 3f;
     bool pv1 = true;
     bool pv2 = true;
     bool pv3 = true;
@@ -24,7 +24,10 @@ public class MortEtRespawn : MonoBehaviour
     public bool KnockFromRight;
     public Player_Mouvements PlayerActions;
 
-
+    private void Awake()
+    {
+        //pvloss();
+    }
 
     private void Start()
     {
@@ -55,22 +58,28 @@ public class MortEtRespawn : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("DeathPoint"))
         {
-
+            health--;
             transform.position = Respawn;
             player.sethealth(health);
-            health--;
+            
             Debug.Log(health);
 
         }
 
 
     }
+    public void stophurt()
+    {
+        Animator_player.SetBool("boolHurt", false);
+
+    }
     // lose health (called in the monster attack script
     public void hitted()
     {
-
+        health--;
         player.sethealth(health);
-            health--;
+            
+        Animator_player.SetBool("boolHurt", true);
         Debug.Log(health);
 
 
@@ -79,7 +88,7 @@ public class MortEtRespawn : MonoBehaviour
     public void mort()
     {
 
-        if (health <= 0)
+        if (player.gethealth() <= 0)
         {
 
 
@@ -117,27 +126,29 @@ public class MortEtRespawn : MonoBehaviour
 
 
     }
+    //UI interactive des pv pour faire disparaitre les coeurs et les faires réaparaitre
     public void pvloss()
     {
-        if (health < 1)
+        if (player.gethealth() < 1)
         {
 
             Pv[0].gameObject.SetActive(false);
             pv1 = false;
 
         }
-        else if(health <2) 
+        else if(player.gethealth() < 2) 
         {
 
             Pv[1].gameObject.SetActive(false);
             pv2 = false;
 
         }
-        else if (health < 3)
+        else if (player.gethealth() < 3)
         {
 
             Pv[2].gameObject.SetActive(false);
             pv3 = false;
+            Debug.Log(player.gethealth());
 
         }
 
@@ -146,14 +157,14 @@ public class MortEtRespawn : MonoBehaviour
     }
     private void pvrecup()
     {
-        if (health == 2 && pv2 == false)
+        if (player.gethealth() == 2 && pv2 == false)
         {
 
             Pv[1].gameObject.SetActive(true);
 
 
         }
-        else if (health == 3 && pv3 == false)
+        else if (player.gethealth() == 3 && pv3 == false)
         {
 
             Pv[2].gameObject.SetActive(true);

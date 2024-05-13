@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 10492581b1cfb61439d936f65e7c4e5b
+guid: 9a064484ee1f24d4eb75c927958ac239
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -108,106 +108,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: Double_jump_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 36
-        width: 45
-        height: 145
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ded61e23dfb2c5a4e9b04aea0b7b91ad
-      internalID: 1189256578
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Double_jump_1
-      rect:
-        serializedVersion: 2
-        x: 146
-        y: 4
-        width: 69
-        height: 210
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2966c75265f7cb941ad4736ffc339905
-      internalID: 247973510
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Double_jump_2
-      rect:
-        serializedVersion: 2
-        x: 257
-        y: 2
-        width: 78
-        height: 214
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6b0c7b1597dcff54381c48673146b008
-      internalID: -16611413
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Double_jump_3
-      rect:
-        serializedVersion: 2
-        x: 375
-        y: 0
-        width: 103
-        height: 217
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2c93b12b34d89d4439ac62bb84ccdfc8
-      internalID: 744853142
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 45152c5cc76a9e9419a38044351a8ec0
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      Double_jump_0: 1189256578
-      Double_jump_1: 247973510
-      Double_jump_2: -16611413
-      Double_jump_3: 744853142
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

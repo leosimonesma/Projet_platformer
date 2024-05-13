@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Cours/SCN_Niveau1.unity
     guid: c4713228831b9e34abb9a74f1ee32d13
+  - enabled: 1
+    path: Assets/Scenes/Cours/SCN_Niveau2.unity
+    guid: edbd7bf6f8d2db44f9f9e8c8f163f0e1
   m_configObjects: {}

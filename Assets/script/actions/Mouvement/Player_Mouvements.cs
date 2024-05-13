@@ -7,7 +7,7 @@ public class Player_Mouvements : MonoBehaviour
 
 
     // ----------------------- Mouvement --------------------
-    public float mouvement_speed = 40f;
+    public float mouvement_speed = 45f;
     public float mouvement_grab = 10f;
     public float horizontalMove = 0f;
     float vitesseInit;
@@ -209,13 +209,13 @@ public class Player_Mouvements : MonoBehaviour
 
     }
 
-    IEnumerator DoubleJumpEnd()
+    public void DoubleJumpstart()
     {
         Animator_player.SetBool("BoolSecondJump", true);
-        yield return new WaitForSeconds(0.05f);
+    }
+    public void DoubleJumpEnd()
+    {
         Animator_player.SetBool("BoolSecondJump", false);
-
-
     }
 
     public void Jump()
@@ -241,7 +241,7 @@ public class Player_Mouvements : MonoBehaviour
             {
                 if (player.getnbSaut() == 1 && !isGrounded)
                 {
-                    StartCoroutine(DoubleJumpEnd());
+                    DoubleJumpstart();
 
                 }
                 rigidbody.velocity = Vector2.up * jump_speed;

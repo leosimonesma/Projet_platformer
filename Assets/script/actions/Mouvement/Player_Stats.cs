@@ -7,7 +7,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "PlayerStats/New PlayerStats Container")]
 public class Player_Stats : ScriptableObject
 {
-    private bool CanAttack = true;
+    private bool CanAttack = false;
     private bool dashUp = false;
     private bool CanDoubleJump = false;
     private int nbSaut = 0;

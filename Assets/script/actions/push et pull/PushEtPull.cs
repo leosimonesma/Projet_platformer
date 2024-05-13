@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering.Universal;
 
 public class pushetpull : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class pushetpull : MonoBehaviour
     public bool isGrabbing = false;
     private GameObject grabbedObject;
     private int layerIndex;
+    [SerializeField] Light2D GrabZone;
 
     private void Start()
     {
@@ -34,6 +36,7 @@ public class pushetpull : MonoBehaviour
                 grabbedObject.GetComponent<Rigidbody2D>().isKinematic = true;
                 grabbedObject.transform.SetParent(transform);
                 isGrabbing = true;
+                
             }
             //release object
             else if (Input.GetButtonDown("DialogueCustom"))
@@ -43,6 +46,7 @@ public class pushetpull : MonoBehaviour
                 grabbedObject.transform.SetParent(null);
                 grabbedObject = null;
                 isGrabbing = false;
+             
 
             }
         }

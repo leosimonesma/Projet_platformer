@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DashAndDoubleJumpUnlock : MonoBehaviour
+public class unlockAttack : MonoBehaviour
 {
     [SerializeField] Player_Stats player;
 
@@ -10,15 +10,8 @@ public class DashAndDoubleJumpUnlock : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-
-            player.setDashUp(true);
-            player.setnbSaut(1);
-            player.setCanDoubleJump(true);
+            player.setCanAttack(true);
         }
-
-
-
-
     }
 
 }

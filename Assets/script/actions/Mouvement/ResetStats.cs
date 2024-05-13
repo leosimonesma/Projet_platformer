@@ -6,7 +6,7 @@ using UnityEngine;
 public class ResetStats : MonoBehaviour
 {
     [SerializeField] Player_Stats player;
-    [SerializeField] GameObject collider;
+    [SerializeField] GameObject Box;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -16,20 +16,13 @@ public class ResetStats : MonoBehaviour
             player.setDashUp(false);
             player.setnbSaut(0);
             player.setCanDoubleJump(false);
-
-
+            player.setCanAttack(false);
+            player.sethealth(3);
         }
-
-
-
-
     }
     private void OnTriggerExit2D(Collider2D other)
     {
-
-        collider.SetActive(false);
-
-
+        Box.SetActive(false);
     }
 
 }

@@ -12,6 +12,7 @@ public class HealPoint : MonoBehaviour
     public MortEtRespawn PlayerHealth;
     [SerializeField] float nbHeal = 1;
     [SerializeField] Light2D healzone;
+    [SerializeField] Player_Stats player;
 
 
 
@@ -77,6 +78,7 @@ public class HealPoint : MonoBehaviour
 
 
             PlayerHealth.health++;
+            player.sethealth(PlayerHealth.health);
             Debug.Log(PlayerHealth.health);
             nbHeal = 0;
             healzone.intensity = 0;

@@ -29,7 +29,7 @@ public class Pousser_Tirer : MonoBehaviour
             Debug.Log("j'ai Grab");
             ObjectTransform.GetComponent<Rigidbody2D>().isKinematic = true;
             ObjectTransform.transform.SetParent(PlayerTransform);
-            playerstats.isGrabbing = true;
+            
 
         }
        else if (Input.GetButtonDown("DialogueCustom"))
@@ -37,7 +37,7 @@ public class Pousser_Tirer : MonoBehaviour
             Debug.Log("je grab pas !");
             ObjectTransform.GetComponent<Rigidbody2D>().isKinematic = false;
             ObjectTransform.transform.SetParent(null);
-            playerstats.isGrabbing = false;
+            
 
 
         }
