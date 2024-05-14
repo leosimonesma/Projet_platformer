@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: NPC_02
   m_EditorClassIdentifier: 
   NPCName: Aterstall
-  NPCFace: {fileID: 21300000, guid: 70d32ec593eac5d42a5c3c497ab3033b, type: 3}
+  NPCFace: {fileID: 21300000, guid: 944c5a1c5aa12da46a732ff297b61a1f, type: 3}
   paragraphs:
   - "Attention ! Il a \xE9veill\xE9 des monstres pour bloquer ta route !  "
   - "Prend ma force ! Gr\xE2ce a elle tu pourra m'invoquer pour te d\xE9fendre contre

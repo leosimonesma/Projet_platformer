@@ -31,14 +31,14 @@ public class  MonsterMouvement : MonoBehaviour
             if (transform.position.x > Player.position.x)
             {
                 //  transform.localScale = new Vector3(1, 1, 1);
-                transform.localScale = new Vector3(3.5f, 3.5f, 5.6f);
+                transform.localScale = new Vector3(1f, 1f, 1f);
                 transform.position += Vector3.left * Speed * Time.deltaTime;
             }
 
             if (transform.position.x < Player.position.x)
             {
                 //  transform.localScale = new Vector3(1, 1, 1);
-                transform.localScale = new Vector3(3.5f, 3.5f, 5.6f);
+                transform.localScale = new Vector3(1f, 1f, 1f);
                 transform.position += Vector3.right * Speed * Time.deltaTime;
             }
         }
@@ -56,7 +56,7 @@ public class  MonsterMouvement : MonoBehaviour
                 if (Vector2.Distance(transform.position, PatrolPoints[0].position) < 0.2f)
                 {
                    // transform.localScale = new Vector3(-1,1,1);
-                    transform.localScale = new Vector3(-3.5f, 3.5f, 5.6f);               
+                    transform.localScale = new Vector3(-1f, 1f, 1f);
                     PatrolDestination = 1;
                 }
             }
@@ -67,7 +67,7 @@ public class  MonsterMouvement : MonoBehaviour
                 if (Vector2.Distance(transform.position, PatrolPoints[1].position) < 0.2f)
                 {
                     //  transform.localScale = new Vector3(1, 1, 1);
-                    transform.localScale = new Vector3(3.5f, 3.5f, 5.6f);
+                    transform.localScale = new Vector3(1f, 1f, 1f);
                     PatrolDestination = 0;
                 }
             }
