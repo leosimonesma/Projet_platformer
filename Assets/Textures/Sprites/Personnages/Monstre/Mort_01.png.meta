@@ -1,0 +1,306 @@
+fileFormatVersion: 2
+guid: 5e45349319b316340b3838d999e95c17
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 250
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Mort_01_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 43
+        width: 299
+        height: 237
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a47562883d326c44988521774985947
+      internalID: -1464981222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mort_01_1
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 42
+        width: 271
+        height: 237
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e46f3e1c53ad85645b83bef04a62e461
+      internalID: -820229874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mort_01_2
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 42
+        width: 267
+        height: 237
+      alignment: 9
+      pivot: {x: 0.46906957, y: 0.46794355}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4b7673a84f9766428523f2dabf3e8d5
+      internalID: 813827130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mort_01_3
+      rect:
+        serializedVersion: 2
+        x: 1212
+        y: 42
+        width: 274
+        height: 237
+      alignment: 9
+      pivot: {x: 0.5636307, y: 0.48838457}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 450a4bda1dc40f340b74f17c57202103
+      internalID: -134649384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mort_01_5
+      rect:
+        serializedVersion: 2
+        x: 1528
+        y: 43
+        width: 299
+        height: 237
+      alignment: 9
+      pivot: {x: 0.61355114, y: 0.48451278}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 530f90a60b2a8044aa58be3f1f1657f1
+      internalID: 1176627722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mort_01_7
+      rect:
+        serializedVersion: 2
+        x: 627
+        y: 41
+        width: 259
+        height: 237
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e11fbc5914e31f74899adfd1a2ffc43a
+      internalID: 1822277517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 877128f736cb49049bdcd8e0aaf01ab8
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Mort_01_0: -1464981222
+      Mort_01_1: -820229874
+      Mort_01_10: -1662709686
+      Mort_01_11: 1179673348
+      Mort_01_12: 1912480470
+      Mort_01_13: 1639885605
+      Mort_01_14: 746365482
+      Mort_01_15: 1489552729
+      Mort_01_16: -1602712781
+      Mort_01_17: -237494974
+      Mort_01_18: 255973772
+      Mort_01_19: -1409125569
+      Mort_01_2: 813827130
+      Mort_01_20: -411604201
+      Mort_01_21: -1969663466
+      Mort_01_22: -274778999
+      Mort_01_23: 1160173393
+      Mort_01_24: -788456056
+      Mort_01_25: -2031394461
+      Mort_01_26: -1833242107
+      Mort_01_27: -1075932424
+      Mort_01_28: -1600395161
+      Mort_01_29: -1711527235
+      Mort_01_3: -134649384
+      Mort_01_30: 1862342697
+      Mort_01_31: -168952463
+      Mort_01_32: 21781317
+      Mort_01_33: 529252007
+      Mort_01_34: -1916978871
+      Mort_01_35: -378136535
+      Mort_01_36: 755546581
+      Mort_01_37: 77818230
+      Mort_01_38: -728873909
+      Mort_01_39: 484583264
+      Mort_01_4: -1900138706
+      Mort_01_40: 1842945215
+      Mort_01_41: 1141313624
+      Mort_01_42: 808167313
+      Mort_01_43: -230403606
+      Mort_01_44: -1018656263
+      Mort_01_45: 824688406
+      Mort_01_46: -1080950828
+      Mort_01_47: -1590361563
+      Mort_01_48: -980049086
+      Mort_01_49: -986557671
+      Mort_01_5: 1176627722
+      Mort_01_50: 494721158
+      Mort_01_51: -170702271
+      Mort_01_52: -698113263
+      Mort_01_6: -456388639
+      Mort_01_7: 1822277517
+      Mort_01_8: -25307858
+      Mort_01_9: -1842714654
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

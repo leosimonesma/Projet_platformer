@@ -10,6 +10,7 @@ public class Player_Stats : ScriptableObject
     private bool CanAttack = false;
     private bool dashUp = false;
     private bool CanDoubleJump = false;
+    private bool IsAlive = true;
     private int nbSaut = 0;
     private float Health = 3;
 
@@ -32,7 +33,14 @@ public class Player_Stats : ScriptableObject
     {
         dashUp = d;
     }
-
+    public bool getIsAlive()
+    {
+        return IsAlive;
+    }
+    public void setIsAlive(bool I)
+    {
+        IsAlive = I;
+    }
 
     public bool getCanDoubleJump()
     {

@@ -16,61 +16,48 @@ public class Monsters_SCript : MonoBehaviour
     [SerializeField] bool recoveryTime = false;
     [SerializeField] Animator Animator_Monster;
     [SerializeField] bool DoHit;
-   
+    [SerializeField] MonsterMouvement mouvement;
+    public bool IsAlive = true;
+
 
     //methode to make the monster lose Hp and die
     public void loseHp()
     {
         MonsterHp--;
-       
-        
-           // Animator_Monster.SetBool("BoolHurt", true);
-            
-            Debug.Log("Je perd un Pv");
-            StartCoroutine(BeeingHit());
+        Debug.Log("Je perd un Pv");
 
-
-        
        if (MonsterHp <= 0)
        {
-            Animator_Monster.SetBool("BoolDeath", true);
-            StartCoroutine(Dying());
-            Debug.Log("Je meurt !!");
+           // Animator_Monster.SetBool("BoolDeath", true);
+           // StartCoroutine(Dying());
+          //  Debug.Log("Je meurt !!");
 
        }
 
     }
 
     // coroutines to stop the hurt animation and the death animation at the right time 
-    IEnumerator BeeingHit()
-    {
-
-        yield return new WaitForSeconds(0.4f);
-       // Animator_Monster.SetBool("BoolHurt", false);
-
-
-
-    }
     IEnumerator Dying()
     {
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
         Destroy(gameObject);
-
-
-
+    }
+    public void Dead()
+    {
+        Destroy(gameObject);
     }
     // kill the monster when his Hp arrive a 0
     public void death()
     {
-        if (MonsterHp <= 0)
+        if (MonsterHp <= 0 && IsAlive == true)
         {
-            MonsterHp--;
-            Animator_Monster.SetBool("BoolDeath",true);
-            StartCoroutine(Dying());
-
+            mouvement.IsHitting = true;
+            mouvement.IsChasing = false;
+            IsAlive = false;
+            Animator_Monster.SetTrigger("TriggerDeath");
+            Debug.Log("Je meurt !!");
         }
-
     }
     public void destroyed()
     {
@@ -79,45 +66,22 @@ public class Monsters_SCript : MonoBehaviour
     //Attack Animation
     private void attack()
     {
-
         if (DoHit)
         {
-
             Animator_Monster.SetBool("BoolAttack", true);
-
+            mouvement.IsHitting = true;
         }
         else
         {
             Animator_Monster.SetBool("BoolAttack", false);
-
+            mouvement.IsHitting = false;
         }
-
-
-
     }
-
-    public void finAttack()
-    {
-
-        //Animator_Monster.SetBool("BoolAttack", false);
-
-
-    }
-
-
-    void Start()
-    {
-
-    }
-
-
     void Update()
     {
         // "hitbox" of the monster
         DoHit = Physics2D.OverlapCircle(AttackHox.position, AttackCheckRadius, CollisionsLayersAttack);
-       // death();
+        death();
         attack();
-
-
     }
 }

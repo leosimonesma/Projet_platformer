@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
@@ -16,6 +17,9 @@ public class MortEtRespawn : MonoBehaviour
     bool pv1 = true;
     bool pv2 = true;
     bool pv3 = true;
+    [SerializeField] GameObject symboleMort;
+    [SerializeField] GameObject perso;
+    [SerializeField] Player_Stats joueur;
 
     // ---------------- knockback ----------------------
     public float Knockback_Strenght = 20;
@@ -56,7 +60,7 @@ public class MortEtRespawn : MonoBehaviour
 
 
         }
-        else if (other.gameObject.CompareTag("DeathPoint"))
+        else if (other.gameObject.CompareTag("DeathPoint")&& player.gethealth() > 0)
         {
             health--;
             transform.position = Respawn;
@@ -84,31 +88,22 @@ public class MortEtRespawn : MonoBehaviour
 
 
     }
+
     //death of the player when hp = 0
     public void mort()
     {
-
         if (player.gethealth() <= 0)
         {
-
-
-            SceneManager.LoadScene("SCN_Niveau1");
-            // Animator_player.SetBool("BoolDeath",true );
-
-
-
+            
+            joueur.setIsAlive(false);
+            
         }
-
-
-
-
     }
     //keep in memory the checkpoint position
     public void respawn()
     {
 
         transform.position = Respawn;
-        // Animator_player.SetBool("BoolDeath",false );
 
     }
     //method to knocback the player when he is hitted depending of where he is hitted from 

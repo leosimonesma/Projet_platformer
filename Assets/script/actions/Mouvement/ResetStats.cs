@@ -18,6 +18,7 @@ public class ResetStats : MonoBehaviour
             player.setCanDoubleJump(false);
             player.setCanAttack(false);
             player.sethealth(3);
+            player.setIsAlive(true);
         }
     }
     private void OnTriggerExit2D(Collider2D other)
