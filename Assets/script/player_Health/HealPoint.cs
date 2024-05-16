@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.InputSystem.DefaultInputActions;
+//using static UnityEngine.InputSystem.DefaultInputActions;
 using UnityEngine.Rendering.Universal;
 
 public class HealPoint : MonoBehaviour
