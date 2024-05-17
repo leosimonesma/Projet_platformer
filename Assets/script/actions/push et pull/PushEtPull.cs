@@ -7,13 +7,13 @@ public class pushetpull : MonoBehaviour
     [SerializeField] private Transform grabPoint;
 
     [SerializeField] private Transform raypoint;
-    [SerializeField]
+    [SerializeField] Player_Stats player;
     private float rayDistance;
     public bool isGrabbing = false;
     private GameObject grabbedObject;
+    [SerializeField] private Transform protBox;
     private int layerIndex;
     [SerializeField] Transform PlayerTransform;
-    private float Knockback_Strenght = 2000; 
     private const float interactDistance = 10f;
 
     private void Start()
@@ -32,7 +32,7 @@ public class pushetpull : MonoBehaviour
         {
           //  Debug.Log("je lance le ray");
             //grab object
-            if (Input.GetButtonDown("DialogueCustom") && grabbedObject == null)
+            if (Input.GetButtonDown("DialogueCustom") && grabbedObject == null && player.getCanPush() == true)
             {
                 grabbedObject = hitInfo.collider.gameObject;
                 Debug.Log("je grab");
@@ -45,7 +45,9 @@ public class pushetpull : MonoBehaviour
                 grabbedObject.GetComponent<Rigidbody2D>().isKinematic = true;
                 grabbedObject.transform.SetParent(transform);
                 isGrabbing = true;
-                
+                protBox.gameObject.SetActive(true);
+
+
             }
             //release object
             else if (Input.GetButtonDown("DialogueCustom"))
@@ -56,7 +58,8 @@ public class pushetpull : MonoBehaviour
                 grabbedObject.transform.SetParent(null);
                 grabbedObject = null;
                 isGrabbing = false;
-             
+                protBox.gameObject.SetActive(false);
+
 
             }
         }

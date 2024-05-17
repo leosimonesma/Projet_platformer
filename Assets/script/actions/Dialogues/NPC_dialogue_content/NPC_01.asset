@@ -16,7 +16,7 @@ MonoBehaviour:
   NPCFace: {fileID: 21300000, guid: e4b8fede9e5afa741a704af1fad54bed, type: 3}
   paragraphs:
   - Tu vas avoir besoin d'aide si tu veux rattraper cette creature a temps.
-  - "Gr\xE2ce a cet anneau je peux te confier ma force et t'octroyer de nouvelles
-    capacitees !"
-  - "Gr\xE2ce a mon pouvoir tes mouvements seront plus libre et amplifies ! Maintenant
-    va !\n continue ta poursuite !"
+  - Grace a cet anneau je peux te confier ma force et t'octroyer de nouvelles capacites
+    !
+  - "Grace a mon pouvoir tes mouvements seront plus libre et amplifies ! Maintenant
+    va !\n Continue ta poursuite !"

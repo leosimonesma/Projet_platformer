@@ -13,6 +13,7 @@ public class Player_Stats : ScriptableObject
     private bool IsAlive = true;
     private int nbSaut = 0;
     private float Health = 3;
+    private bool CanPush = false;
 
     
     public bool getCanAttack()
@@ -23,6 +24,15 @@ public class Player_Stats : ScriptableObject
     {
         CanAttack = a;
     }
+    public bool getCanPush()
+    {
+        return CanPush;
+    }
+    public void setCanPush(bool p)
+    {
+        CanPush = p;
+    }
+
 
 
     public bool getDashUp()
