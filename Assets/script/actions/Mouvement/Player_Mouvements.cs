@@ -141,22 +141,6 @@ public class Player_Mouvements : MonoBehaviour
             Flip();
         }
 
-       
-        // ---------------------- Slide --------------------------------
-        if (Input.GetKeyDown(KeyCode.Keypad2))
-        {
-
-            Animator_player.SetBool("BoolSlide", true);
-
-        }
-        else
-        {
-
-            Animator_player.SetBool("BoolSlide", false);
-
-        };
-
-
     }
     public void Dash()
     {
@@ -199,13 +183,6 @@ public class Player_Mouvements : MonoBehaviour
             Animator_player.SetBool("BoolDash", false);
 
         };
-     /*   else if (Input.GetButtonUp("DashCustom"))
-        {
-
-            Animator_player.SetBool("BoolDash", false);
-
-        };*/
-
 
     }
 
