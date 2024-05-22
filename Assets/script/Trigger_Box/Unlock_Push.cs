@@ -6,13 +6,15 @@ public class Unlock_Push : MonoBehaviour
 {
     [SerializeField] Player_Stats player;
     [SerializeField] private GameObject msg;
+    [SerializeField] private bool active = true; 
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") && active == true)
         {
             player.setCanPush(true);
-            Debug.Log(player.getCanPush());
+            active = false;
+         
         }
     }
     private void OnTriggerExit2D(Collider2D other)

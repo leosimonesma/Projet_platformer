@@ -143,7 +143,6 @@ public class MortEtRespawn : MonoBehaviour
 
             Pv[2].gameObject.SetActive(false);
             pv3 = false;
-            Debug.Log(player.gethealth());
 
         }
 

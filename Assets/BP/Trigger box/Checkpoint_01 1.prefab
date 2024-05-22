@@ -228,6 +228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CheckpointZone: {fileID: 1555266873516404141}
+  ActiveSound: {fileID: 8300000, guid: da783fba675ef9d4a8b0fdb77a3faa88, type: 3}
 --- !u!1 &6259176340860681095
 GameObject:
   m_ObjectHideFlags: 0

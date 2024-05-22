@@ -18,21 +18,13 @@ public class Monsters_SCript : MonoBehaviour
     [SerializeField] bool DoHit;
     [SerializeField] MonsterMouvement mouvement;
     public bool IsAlive = true;
-
+    [SerializeField] private AudioClip SwingSound;
 
     //methode to make the monster lose Hp and die
     public void loseHp()
     {
         MonsterHp--;
         Debug.Log("Je perd un Pv");
-
-       if (MonsterHp <= 0)
-       {
-           // Animator_Monster.SetBool("BoolDeath", true);
-           // StartCoroutine(Dying());
-          //  Debug.Log("Je meurt !!");
-
-       }
 
     }
 
@@ -69,6 +61,7 @@ public class Monsters_SCript : MonoBehaviour
         if (DoHit)
         {
             Animator_Monster.SetBool("BoolAttack", true);
+            Sound_Manager.instance.playSoundDXClip(SwingSound, transform, 0.09f);
             mouvement.IsHitting = true;
         }
         else

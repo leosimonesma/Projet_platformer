@@ -16,4 +16,5 @@ MonoBehaviour:
   NPCFace: {fileID: 21300000, guid: dbe02b1940a999448b18a424e0be1324, type: 3}
   paragraphs:
   - 'Ton chemin est bloque ? Je peux t''apporter mon aide '
-  - tu vois ce gros rocher ? Grace a ma force tu va pouvoir le deplacer !
+  - tu vois ce gros rocher qui porte une marque ? Grace a ma force tu va pouvoir
+    le deplacer !

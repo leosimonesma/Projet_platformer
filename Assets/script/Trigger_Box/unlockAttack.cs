@@ -5,12 +5,14 @@ using UnityEngine;
 public class unlockAttack : MonoBehaviour
 {
     [SerializeField] Player_Stats player;
+    [SerializeField] private bool active = true;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") && active == true)
         {
             player.setCanAttack(true);
+            active = false;
         }
     }
 

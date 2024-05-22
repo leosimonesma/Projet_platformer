@@ -191,6 +191,8 @@ MonoBehaviour:
   DoHit: 0
   mouvement: {fileID: 8867403309497940320}
   IsAlive: 1
+  SwingSound: {fileID: 8300000, guid: 0495cc2f01a4e2e4bb059838004cdcab, type: 3}
+  soundWalk: {fileID: 0}
 --- !u!95 &3079485296883323702
 Animator:
   serializedVersion: 5

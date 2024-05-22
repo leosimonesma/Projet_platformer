@@ -8,12 +8,14 @@ public abstract class NPC : MonoBehaviour, IInteractable
 {
     [SerializeField] private SpriteRenderer InteractSprite;
     private Transform PlayerTransform;
-    private const float interactDistance = 2.5f; 
+    private const float interactDistance = 2.5f;
+    
 
 
     private void Start()
     {
         PlayerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+     
     }
 
     private void Update()
@@ -24,7 +26,6 @@ public abstract class NPC : MonoBehaviour, IInteractable
         {
             //-------------------Intéraction with a NPC--------------
             Interact();
-
         }
         if (InteractSprite.gameObject.activeSelf && !IsWithinInteractDistance())
         {

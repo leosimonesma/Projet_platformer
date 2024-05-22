@@ -262,6 +262,9 @@ MonoBehaviour:
   InteractSprite: {fileID: 1111419874566068904}
   PlayerHealth: {fileID: 0}
   nbHeal: 1
+  healzone: {fileID: 0}
+  player: {fileID: 0}
+  ActiveSound: {fileID: 8300000, guid: 01c8e0bcd8f7a60448449039ab5bf63e, type: 3}
 --- !u!212 &6283235420169103858
 SpriteRenderer:
   m_ObjectHideFlags: 0

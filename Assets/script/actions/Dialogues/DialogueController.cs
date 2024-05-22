@@ -22,6 +22,7 @@ public class DialogueController : MonoBehaviour
     private const float MaxTypeTime = 0.1f;
     public bool CanMove = true;
     public Player_Mouvements YouCanMove;
+    [SerializeField] private AudioClip DialogueSound;
 
 
     public void DisplayNextParagraph (DialogueText dialogueText)
@@ -92,6 +93,7 @@ public class DialogueController : MonoBehaviour
         if (!gameObject.activeSelf)
         {
             gameObject.SetActive(true);
+            Sound_Manager.instance.playSoundDXClip(DialogueSound, transform, 0.2f);
 
         }
         NPCFace.sprite = dialogueText.NPCFace;

@@ -13,6 +13,7 @@ TagManager:
   - DeathPoint
   - HealPoint
   - ObjectsGround
+  - Blockus
   layers:
   - Default
   - TransparentFX

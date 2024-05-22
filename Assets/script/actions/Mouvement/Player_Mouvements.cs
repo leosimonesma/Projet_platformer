@@ -31,13 +31,14 @@ public class Player_Mouvements : MonoBehaviour
     [SerializeField] LayerMask CollisionsLayers;
     [SerializeField] GameObject isGroundedCricle;
     [SerializeField] bool SecondJump = false;
-
+    [SerializeField] private AudioClip SecondJumpSound;
 
     // ---------------- Dash ------------------------
     [SerializeField] float dash_speed = 2f;
     [SerializeField] float dash_duration = 0.1f;
     [SerializeField] float couldown = 3f;
     [SerializeField] bool dashUp = true;
+    [SerializeField] private AudioClip DashSound;
 
     // ------------- Animations ----------------------------
     [SerializeField] Animator Animator_player;
@@ -47,6 +48,7 @@ public class Player_Mouvements : MonoBehaviour
 
   // ------------------ Actions -------------------------
     [SerializeField] bool CanAttack = true;
+    [SerializeField] private AudioClip[] SwingSounds;
 
 
 
@@ -173,6 +175,7 @@ public class Player_Mouvements : MonoBehaviour
         {
 
             StartCoroutine(Fonction_Dash());
+            Sound_Manager.instance.playSoundDXClip(DashSound, transform, 0.2f);
 
             Animator_player.SetBool("BoolDash", true);
 
@@ -189,6 +192,7 @@ public class Player_Mouvements : MonoBehaviour
     public void DoubleJumpstart()
     {
         Animator_player.SetBool("BoolSecondJump", true);
+        Sound_Manager.instance.playSoundDXClip(SecondJumpSound, transform, 0.2f);
     }
     public void DoubleJumpEnd()
     {
@@ -299,7 +303,7 @@ public class Player_Mouvements : MonoBehaviour
         }
         if (Input.GetButtonDown("AttackCustom")&& player.getCanAttack())
         {
-
+            Sound_Manager.instance.playSoundRandomDXClip(SwingSounds, transform, 0.2f);
            go_attack();
           if (isGrounded)
           {

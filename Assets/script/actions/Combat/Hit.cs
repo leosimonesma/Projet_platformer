@@ -20,17 +20,12 @@ public class Hit : MonoBehaviour
 
                 Enemy.GetComponent<Monsters_SCript>().loseHp();
             }
+            if (Enemy.tag == "Blockus")
+            {
+
+                Enemy.GetComponent<Blockus>().loseHp();
+            }
         }
         Debug.Log("Basic attack Is Performed");
     }
-
-  /*  // trigger to inflict dmg to the monsters
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("Monsters"))
-        {
-            Debug.Log("j'ai touché");
-           MonsterScript.loseHp();
-        }
-    }*/
 }

@@ -13,6 +13,7 @@ public class HealPoint : MonoBehaviour
     [SerializeField] float nbHeal = 1;
     [SerializeField] Light2D healzone;
     [SerializeField] Player_Stats player;
+    [SerializeField] private AudioClip ActiveSound;
 
 
 
@@ -76,7 +77,7 @@ public class HealPoint : MonoBehaviour
         if (PlayerHealth.health < 3 && nbHeal ==1)
         {
 
-
+            Sound_Manager.instance.playSoundDXClip(ActiveSound, transform, 0.2f);
             PlayerHealth.health++;
             player.sethealth(PlayerHealth.health);
             Debug.Log(PlayerHealth.health);
