@@ -4,12 +4,13 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
+using Cinemachine;
 
 public class MortEtRespawn : MonoBehaviour
 {
 
     //------------------ death and respawn -------------
-    private Vector2 Respawn;
+    public Vector2 Respawn;
     [SerializeField] Player_Stats player;
     [SerializeField] Animator Animator_player;
     [SerializeField] public GameObject[] Pv;
@@ -20,6 +21,7 @@ public class MortEtRespawn : MonoBehaviour
     [SerializeField] GameObject symboleMort;
     [SerializeField] GameObject perso;
     [SerializeField] Player_Stats joueur;
+    [SerializeField] private Transform StartPosition;
 
     // ---------------- knockback ----------------------
     public float Knockback_Strenght = 20;
@@ -28,15 +30,10 @@ public class MortEtRespawn : MonoBehaviour
     public bool KnockFromRight;
     public Player_Mouvements PlayerActions;
 
-    private void Awake()
-    {
-        //pvloss();
-    }
 
     private void Start()
     {
         Respawn = transform.position;
-        // set les pv a 3 
     }
     private void Update()
     {
@@ -70,6 +67,11 @@ public class MortEtRespawn : MonoBehaviour
 
         }
 
+
+    }
+    public void TLMN()
+    {
+        this.GetComponent<Rigidbody2D>().isKinematic = false;
 
     }
     public void stophurt()
@@ -126,53 +128,32 @@ public class MortEtRespawn : MonoBehaviour
     {
         if (player.gethealth() < 1)
         {
-
             Pv[0].gameObject.SetActive(false);
             pv1 = false;
-
         }
+
         else if(player.gethealth() < 2) 
         {
-
             Pv[1].gameObject.SetActive(false);
             pv2 = false;
-
         }
+
         else if (player.gethealth() < 3)
         {
-
             Pv[2].gameObject.SetActive(false);
             pv3 = false;
-
         }
-
-
-
     }
     private void pvrecup()
     {
         if (player.gethealth() == 2 && pv2 == false)
         {
-
             Pv[1].gameObject.SetActive(true);
-
-
         }
+
         else if (player.gethealth() == 3 && pv3 == false)
         {
-
             Pv[2].gameObject.SetActive(true);
-
-
         }
-
-
-
-
-
     }
-
-
-
-
 }

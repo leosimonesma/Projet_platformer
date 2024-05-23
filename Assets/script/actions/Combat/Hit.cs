@@ -14,18 +14,17 @@ public class Hit : MonoBehaviour
 
         foreach (var Enemy in Player_Hitbox)
         {
-
             if (Enemy.tag == "Monsters")
             {
 
                 Enemy.GetComponent<Monsters_SCript>().loseHp();
             }
+
             if (Enemy.tag == "Blockus")
             {
 
                 Enemy.GetComponent<Blockus>().loseHp();
             }
         }
-        Debug.Log("Basic attack Is Performed");
     }
 }

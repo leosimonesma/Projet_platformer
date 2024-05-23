@@ -7,7 +7,6 @@ public class Script_CameraSwitch : MonoBehaviour
 {
 
     [SerializeField] private CinemachineVirtualCamera Activ_Cam;
-    [SerializeField] private CinemachineVirtualCamera Passiv_Cam;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,9 +25,14 @@ public class Script_CameraSwitch : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D other) {
-        Passiv_Cam.Priority = 1;
-        Activ_Cam.Priority = 2;
-    }
+        //Passiv_Cam.Priority = 1;
+        Activ_Cam.m_Lens.OrthographicSize = 11;
 
+    }
+    //void OnTriggerEnter2D(Collider2D other) 
+    //{
+    //    cam_01.SetActive(false);
+    //    cam_02.SetActive(true);
+    //}
 }
 

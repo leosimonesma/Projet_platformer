@@ -44,22 +44,20 @@ public class pushetpull : MonoBehaviour
                 if (Vector2.Distance(PlayerTransform.position, grabbedObject.transform.position) < interactDistance)
                 {
                     grabbedObject.transform.position = grabPoint.position;
-
                 }
-
+                grabbedObject.GetComponent<lightpushpull>().setLightOn2();
                 grabbedObject.GetComponent<Rigidbody2D>().isKinematic = true;
                 grabbedObject.transform.SetParent(transform);
                 isGrabbing = true;
                 protBox.gameObject.SetActive(true);
                 canTalk = false;
-
-
             }
             //release object
             else if (Input.GetButtonDown("DialogueCustom"))
             {
                 grabbedObject = hitInfo.collider.gameObject;
                 Debug.Log("je grab pas !");
+                grabbedObject.GetComponent<lightpushpull>().setLightOff2();
                 grabbedObject.GetComponent<Rigidbody2D>().isKinematic = false;
                 grabbedObject.transform.SetParent(null);
                 grabbedObject = null;

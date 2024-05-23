@@ -12,24 +12,33 @@ public class lightpushpull : MonoBehaviour
 
     public void Update()
     {
-        setLightOn();
-        setLightOff();
+       // setLightOn();
+        //setLightOff();
 
     }
 
-    public void setLightOn()
+    private void setLightOn()
     {
         if (player.isGrabbing == true)
         {
             GrabZone.intensity = 10;
         }
     }
-    public void setLightOff()
+    private void setLightOff()
     {
         if (player.isGrabbing == false)
         {
             GrabZone.intensity = 0;
         }
+    }
+    public void setLightOn2()
+    {
+       GrabZone.intensity = 10;
+    }
+    public void setLightOff2()
+    {
+      GrabZone.intensity = 0;
+        
     }
 
 }
