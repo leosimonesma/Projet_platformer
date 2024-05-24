@@ -6,6 +6,7 @@ public class DashAndDoubleJumpUnlock : MonoBehaviour
 {
     [SerializeField] Player_Stats player;
     [SerializeField] bool active = true;
+    [SerializeField] Transform tuto;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -19,6 +20,13 @@ public class DashAndDoubleJumpUnlock : MonoBehaviour
         }
 
 
+
+
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        
+        tuto.gameObject.SetActive(true);
 
 
     }

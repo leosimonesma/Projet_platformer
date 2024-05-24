@@ -6,7 +6,6 @@ using UnityEngine.Rendering.Universal;
 
 public class HealPoint : MonoBehaviour
 {
-    public SpriteRenderer InteractSprite;
     private Transform PlayerTransform;
     private const float interactDistance = 2f;
     public MortEtRespawn PlayerHealth;
@@ -32,20 +31,6 @@ public class HealPoint : MonoBehaviour
 
             Heal();
 
-        }
-        if (InteractSprite.gameObject.activeSelf && !IsWithinInteractDistance())
-        {
-            // ----------------set interraction sprite OFF ----------------
-            InteractSprite.gameObject.SetActive(false);
-
-
-
-        }
-        else if (!InteractSprite.gameObject.activeSelf && IsWithinInteractDistance()&& nbHeal ==1)
-        {
-            //----------- set interraction sprite ON ------------
-
-            InteractSprite.gameObject.SetActive(true);
         }
 
 

@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc86b64c1dbcb034695f426269b1e188, type: 3}
+  m_Name: Leopold
+  m_EditorClassIdentifier: 
+  NPCName: 'Aterstall '
+  NPCFace: {fileID: 21300000, guid: 407ebf11006265c419a46e3560a8b759, type: 3}
+  paragraphs:
+  - 'Son manteau semble bien chaud !! Mais peu pratique pour parler. '
+  - "J'y pense mais je devrais ressortir mes patins en pr\xE9vision de l'hiver !
+    On pourrai meme se faire un petit tournois avec les \namis !!"
