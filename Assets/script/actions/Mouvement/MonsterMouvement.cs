@@ -16,7 +16,7 @@ public class  MonsterMouvement : MonoBehaviour
 
     // --------------- chase -----------------
     public Transform Player;
-    public bool IsChasing = false;
+    [SerializeField] public bool IsChasing = false;
     public float chaseDistance = 3f;
 
     void Update()

@@ -74,6 +74,11 @@ public class MortEtRespawn : MonoBehaviour
         this.GetComponent<Rigidbody2D>().isKinematic = false;
 
     }
+    public void TLMNsTART()
+    {
+        this.GetComponent<Rigidbody2D>().isKinematic = true;
+
+    }
     public void stophurt()
     {
         Animator_player.SetBool("boolHurt", false);
