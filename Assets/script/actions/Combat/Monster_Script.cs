@@ -61,7 +61,7 @@ public class Monsters_SCript : MonoBehaviour
         if (DoHit)
         {
             Animator_Monster.SetBool("BoolAttack", true);
-            Sound_Manager.instance.playSoundDXClip(SwingSound, transform, 0.09f);
+            Sound_Manager.instance.playSoundDXClip(SwingSound, transform, 0.05f);
             mouvement.IsHitting = true;
         }
         else

@@ -20,11 +20,12 @@ public class Hit : MonoBehaviour
                 Enemy.GetComponent<Monsters_SCript>().loseHp();
             }
 
-            if (Enemy.tag == "Blockus")
+            if (Enemy.tag == "Fin")
             {
 
-                Enemy.GetComponent<Blockus>().loseHp();
+                Enemy.GetComponent<Fin>().Finito();
             }
+
         }
     }
 }

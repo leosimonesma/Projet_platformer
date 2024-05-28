@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class MonsterAttack : MonoBehaviour
 {
-    public  MortEtRespawn playerdmg;
-    public Player PlayerMouvement;
+    [SerializeField] public  MortEtRespawn playerdmg;
+    [SerializeField] public Player PlayerMouvement;
+    [SerializeField] Transform hitboxposition;
+    [SerializeField] Vector2 hitboxsize;
+    [SerializeField] LayerMask _layermask;
 
-    private void Update()
+    private void FixedUpdate()
     {
+        
 
     }
 
@@ -19,31 +23,29 @@ public class MonsterAttack : MonoBehaviour
 
     //trigger to allow the monster to inflict dmg to the player
 
-    void OnTriggerEnter2D(Collider2D other)
+    private void DoDMG()
     {
+        Collider2D[] Player_Hitbox = Physics2D.OverlapBoxAll(hitboxposition.position, hitboxsize, _layermask);
 
-        if (other.gameObject.CompareTag("Player"))
+        foreach (var Enemy in Player_Hitbox)
         {
             playerdmg.Knockback_Duration = playerdmg.Knockback_Total_Time;
             Debug.Log("j'ai touché");
-            if (other.transform.position.x <= transform.position.x)
+            if (Enemy.transform.position.x <= transform.position.x && Enemy.tag == "Player")
             {
                 playerdmg.KnockFromRight = true;
 
             }
-            if (other.transform.position.x >= transform.position.x)
+            if (Enemy.transform.position.x >= transform.position.x && Enemy.tag == "Player")
             {
                 playerdmg.KnockFromRight = false;
 
             }
-            playerdmg.hitted();
-            playerdmg.knockback();
-
-
-
-
+            if (Enemy.tag == "Player")
+            {
+              playerdmg.hitted();
+              playerdmg.knockback();
+            }
         }
-
-
     }
 }
