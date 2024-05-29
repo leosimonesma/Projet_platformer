@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc86b64c1dbcb034695f426269b1e188, type: 3}
   m_Name: NPC_SCN_02_04
   m_EditorClassIdentifier: 
-  NPCName: 
+  NPCName: Skugga
   NPCFace: {fileID: 0}
-  paragraphs: []
+  paragraphs:
+  - Do you see this stone charged with energy?
+  - It can help you heal your wounds if you are injured !

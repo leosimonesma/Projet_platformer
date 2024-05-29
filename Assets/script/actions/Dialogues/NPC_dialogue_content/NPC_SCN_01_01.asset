@@ -15,10 +15,10 @@ MonoBehaviour:
   NPCName: Stjarna
   NPCFace: {fileID: 21300000, guid: dbe02b1940a999448b18a424e0be1324, type: 3}
   paragraphs:
-  - Salutation jeune guerrier ! Je suis Stjarna, une guerriere emportee au Vahalla
-    il y a longtemps.
-  - L'anneau que tu a pris et porte a ton doigt m'a invoque depuis les halles d'Odin
-    pour que je t'apporte mon aide dans ta poursuite.
-  - 'Ton chemin est bloque ? Je peux t''apporter mon aide '
-  - tu vois ce gros rocher qui porte une marque ? Grace a ma force tu va pouvoir
-    le deplacer !
+  - Greetings, young warrior! I am Stjarna, a warrior taken to Valhalla long ago.
+  - The ring you took and wear on your finger has summoned me from Odin's halls to
+    aid you in your quest.
+  - I've seen the state your village is in and I've decided to help!
+  - Is your path blocked? let me lend you a hand.
+  - See that big rock with the mark on it? Thanks to my strength you'll be able to
+    move it!

@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dc86b64c1dbcb034695f426269b1e188, type: 3}
-  m_Name: NPC_SCN_02_03
+  m_Name: NPC_SCN_03_02
   m_EditorClassIdentifier: 
   NPCName: Aterstall
   NPCFace: {fileID: 21300000, guid: 407ebf11006265c419a46e3560a8b759, type: 3}
   paragraphs:
-  - 'I did it!!! '
-  - ...
-  - But there's no time to rest, I've got to keep going!
+  - The tales I was told about Krampus never mentioned such creatures... I have a
+    feeling they're not his servants.
+  - Take my strength! Thanks to it, you'll be able to summon me to defend you against
+    them!

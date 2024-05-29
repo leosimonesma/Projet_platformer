@@ -15,5 +15,5 @@ MonoBehaviour:
   NPCName: Stjarna
   NPCFace: {fileID: 21300000, guid: dbe02b1940a999448b18a424e0be1324, type: 3}
   paragraphs:
-  - Tu vois ce dolment ? Il est rempli d'energies qui va se lier a ton anneau.
-  - Si tu te blesse gravement tu sera ramene a ce dolment.
+  - Do you see that dolmen? It is filled with energies that will bind to your ring.
+  - If you are seriously injured, you will be taken back to the hospital.

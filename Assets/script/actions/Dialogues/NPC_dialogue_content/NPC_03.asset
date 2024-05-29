@@ -15,6 +15,6 @@ MonoBehaviour:
   NPCName: Aterstall
   NPCFace: {fileID: 21300000, guid: 407ebf11006265c419a46e3560a8b759, type: 3}
   paragraphs:
-  - .... Des empreintes
-  - Elles sont plus enfoncees sur le devant ! Il court !
-  - Je dois me depecher !
+  - .... Footprints
+  - They are deeper at the front! He's running!
+  - I must hurry!

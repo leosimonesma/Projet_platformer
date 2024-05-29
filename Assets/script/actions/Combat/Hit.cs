@@ -17,7 +17,7 @@ public class Hit : MonoBehaviour
             if (Enemy.tag == "Monsters")
             {
 
-                Enemy.GetComponent<Monsters_SCript>().loseHp();
+                Enemy.GetComponent<Monsters_SCript>().loseHp(); 
             }
 
             if (Enemy.tag == "Fin")

@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc86b64c1dbcb034695f426269b1e188, type: 3}
   m_Name: NPC_SCN_03_01
   m_EditorClassIdentifier: 
-  NPCName: Aterstall
+  NPCName: Uri
   NPCFace: {fileID: 21300000, guid: 944c5a1c5aa12da46a732ff297b61a1f, type: 3}
   paragraphs:
-  - 'Attention ! Il a eveille des monstres pour bloquer ta route !  '
-  - Prends ma force ! Grace a elle tu pourras m'invoquer pour te defendre contre
-    eux !
+  - 'I am Uri! Stjarna''s last comrade '
+  - 'Watch out! He''s stirred up some monsters to block your way!  '
+  - Take my strength! Thanks to it, you'll be able to summon me to defend you against
+    them!

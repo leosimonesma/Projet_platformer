@@ -6,6 +6,7 @@ public class unlockAttack : MonoBehaviour
 {
     [SerializeField] Player_Stats player;
     [SerializeField] private bool active = true;
+    [SerializeField] private GameObject msg;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -14,6 +15,12 @@ public class unlockAttack : MonoBehaviour
             player.setCanAttack(true);
             active = false;
         }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        msg.SetActive(true);
+
+
     }
 
 }

@@ -15,9 +15,9 @@ MonoBehaviour:
   NPCName: Skugga
   NPCFace: {fileID: 21300000, guid: e4b8fede9e5afa741a704af1fad54bed, type: 3}
   paragraphs:
-  - Tu vas avoir besoin d'aide si tu veux rattraper cette creature a temps.
-  - Grace a cet anneau je peux te confier ma force et t'octroyer de nouvelles capacites
-    !
-  - 'Mon pouvoir te confere des mouvements plus libre et amplifies ! '
-  - "Plus loin se trouve la grande gorge des fjords fait tr\xE8s attention ! tu devras
-    utiliser mes pouvoir pour pouvoir arriver de l'autre cote !"
+  - 'I am Skugga, I fought and died at Stjarna and Uri''s side. '
+  - You're going to need some help if you're going to catch this creature in time.
+  - Thanks to this ring, I can entrust you with my strength and give you new abilities!
+  - 'My power gives you greater freedom of movement! '
+  - Further on is the great gorge of the fjords, so be careful! You'll have to use
+    my powers to get to the other side!

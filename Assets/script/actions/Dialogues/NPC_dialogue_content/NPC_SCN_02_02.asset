@@ -15,6 +15,6 @@ MonoBehaviour:
   NPCName: Aterstall
   NPCFace: {fileID: 21300000, guid: 407ebf11006265c419a46e3560a8b759, type: 3}
   paragraphs:
-  - Aller courage Ne pense pas au vide et Ferme les yeux !
+  - Be brave, don't think about the void and close your eyes!
   - ....
-  - Mauvaise idee, juste ne regarde pas en bas !
+  - Bad idea, just don't look down!
