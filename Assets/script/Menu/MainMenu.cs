@@ -3,16 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
+using Unity.VisualScripting;
+
 public class MainMenu : MonoBehaviour
 {
     public GameObject ReglagesMenuUI;
     public GameObject MainMenuUI;
     [SerializeField] GameObject MenuFirstButton, OptionFirstButton, OptionCloseButton;
+    [SerializeField] Animator Animator_Transition;
     public void ButtonPlay()
     {
-        SceneManager.LoadScene("SCN_Niveau1");
+        
+        SceneManager.LoadScene("SCN_Intro");
 
     }
+
     public void QuiGame()
     {
 
@@ -28,6 +33,11 @@ public class MainMenu : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(OptionCloseButton);
 
+    }
+    public void Transition()
+    {
+
+        Animator_Transition.SetTrigger("Transition_Trigger");
     }
     public void reglages()
     {

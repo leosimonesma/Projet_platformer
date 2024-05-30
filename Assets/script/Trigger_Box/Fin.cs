@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class Fin : MonoBehaviour
 {
     [SerializeField] Animator Animator_Fin;
+    [SerializeField] Animator Animator_Transition;
     public void Finito()
     {
         Animator_Fin.SetTrigger("TiggerFin");
@@ -15,7 +16,7 @@ public class Fin : MonoBehaviour
     }
     public void LoadFinito()
     {
-        SceneManager.LoadScene("SCN_Niveau4");
+        Animator_Transition.SetTrigger("Transition_Trigger_SNC_04");
 
 
     }

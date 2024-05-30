@@ -32,6 +32,7 @@ public class Menu_Pause : MonoBehaviour
 
         }
     }
+
     // fonction pour relancer le jeu depuis le menu pause et désaficher le menu
     public void Resume()
     {
