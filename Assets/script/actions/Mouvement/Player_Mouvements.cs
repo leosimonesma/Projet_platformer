@@ -41,7 +41,7 @@ public class Player_Mouvements : MonoBehaviour
     [SerializeField] private AudioClip DashSound;
 
     // ------------- Animations ----------------------------
-    [SerializeField] Animator Animator_player;
+    [SerializeField] public Animator Animator_player;
     [SerializeField] SpriteRenderer sprite_renderer;
     public Rigidbody2D rigidbody;
 

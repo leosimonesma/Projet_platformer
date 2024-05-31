@@ -24,16 +24,17 @@ public class Monsters_SCript : MonoBehaviour
     public void loseHp()
     {
         MonsterHp--;
+        StartCoroutine(blesse());
         Debug.Log("Je perd un Pv");
 
     }
 
     // coroutines to stop the hurt animation and the death animation at the right time 
-    IEnumerator Dying()
+    IEnumerator blesse()
     {
-
-        yield return new WaitForSeconds(1f);
-        Destroy(gameObject);
+        this.GetComponent<SpriteRenderer>().enabled = false;
+        yield return new WaitForSeconds(0.09f);
+        this.GetComponent<SpriteRenderer>().enabled = true;
     }
     public void Dead()
     {

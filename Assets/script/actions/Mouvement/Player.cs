@@ -44,8 +44,21 @@ public class Player : MonoBehaviour
 
            
         }
-
+        Tire();
     }
+    private void Tire()
+    {
 
+        if(isPushing.isGrabbing == true && PlayerActions.horizontalMove < 0)
+        {
+            PlayerActions.Animator_player.SetBool("BoolTire", true);
+
+        }
+        else
+        {
+            PlayerActions.Animator_player.SetBool("BoolTire", false);
+
+        }
+    }
 
 }

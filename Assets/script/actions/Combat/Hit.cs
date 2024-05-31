@@ -14,18 +14,19 @@ public class Hit : MonoBehaviour
 
         foreach (var Enemy in Player_Hitbox)
         {
-            if (Enemy.tag == "Monsters")
+            if (Enemy.tag != null)
             {
+                if (Enemy.tag == "Monsters")
+                {
 
-                Enemy.GetComponent<Monsters_SCript>().loseHp(); 
+                    Enemy.GetComponent<Monsters_SCript>().loseHp();
+                }
+               else if (Enemy.tag == "Fin")
+                {
+
+                    Enemy.GetComponent<Fin>().Finito();
+                }
             }
-
-            if (Enemy.tag == "Fin")
-            {
-
-                Enemy.GetComponent<Fin>().Finito();
-            }
-
         }
     }
 }
